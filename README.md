@@ -1,3 +1,8 @@
+##Welcome to LuvLives
+
+Heroku URL:
+https://git.heroku.com/luvlives.git
+
 == README
 
 This README would normally document whatever steps are necessary to get the
