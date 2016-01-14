@@ -52,4 +52,5 @@ end
 # New gems for both development and production
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'figaro', '1.0'
 
