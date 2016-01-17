@@ -11,7 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113171434) do
+ActiveRecord::Schema.define(version: 20160116074705) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "views"
+    t.boolean  "helpful"
+    t.integer  "sharedcount"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "views"
+    t.boolean  "anonymous"
+    t.integer  "shared"
+    t.boolean  "public"
+    t.boolean  "genderlimit"
+    t.string   "agelimit"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

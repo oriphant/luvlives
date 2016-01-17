@@ -3,7 +3,17 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       ## Devise customization
       t.string :name
-      
+      t.string :status
+      t.text :bio
+      t.string :city
+      t.string :state
+      t.string :gender
+      t.integer :age
+      t.string :facebook
+      t.string :twitter
+      t.string :linkedin
+      t.string :website
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
