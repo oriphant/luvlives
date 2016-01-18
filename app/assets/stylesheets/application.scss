@@ -2,10 +2,38 @@
 @import "bootstrap";
 
 
- .user-info {
-   margin-top: 9px;
+ .navtext {
+   margin-top: 20px;
  }
  
  .nav {
-   margin-top: 5px;
+  margin-top: 5px;		/* Controls space above the navigation bar */
+  font-size: 120%; 		/* Font size of text in the buttons */
+  font-weight: bold;
  }
+
+ .navtext a {
+  color: #b3b3b3; 		/* Color of the font */
+  padding: 0 20px 0px 20px;
+ }
+
+ 
+ .nav-tabs {
+	height: 75px;				/* Controls the overall height of the navigation bar */
+ }
+
+/* Trying to control padding around Guest Link - Not working
+
+.dropdown-toggle ul > li > a {
+ padding: 0 20px 0px 20px;
+ }
+
+ .explore ul > li > a {
+ padding: 0 20px 0px 20px;
+ }
+
+ #setupdrop ul > li > a {
+ padding: 0 20px 0px 20px;
+ }
+
+*/

@@ -9,20 +9,30 @@
 </head>
 <body>
 	<div class="container">
-		<%= image_tag "LuvLives-Logo-Final.png" %>
    <ul class="nav nav-tabs">
-        <li><%= link_to "Home", welcome_index_path %></li>
-        <li><%= link_to "About", welcome_about_path %></li>
+        <li><%= link_to image_tag("LuvLives-Logo-Final.png"), welcome_index_path%></li>
 
-        <div class="pull-right user-info">
-           <% if current_user %>
-             Hello <%= current_user.email %>! | <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-           <% else %>
-             <%= link_to "Sign In", new_user_session_path %> or
-             <%= link_to "Sign Up", new_user_registration_path %>
+        <div class="pull-right navtext">
+          <ul class="nav" role="navigation">
+          
+          <%= link_to "Home", welcome_index_path %>
+          <%= link_to "About", welcome_about_path %>
+          <% if current_user %>
+            <%= current_user.email %>! | <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <% else %>
+
+          <li class = "explore pull-right">
+          <%= link_to 'Guest <b class="caret"></b>'.html_safe, root_path, :id => 'setupdrop', :'data-toggle' => 'dropdown', :class => 'dropdown-toggle' %>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                <li class="dropdown-link"><%= link_to "Sign In", new_user_session_path %></li>
+                <li class="dropdown-link"><%= link_to "Sign Up", new_user_registration_path %></li>
+              </ul>
+          </li>
+          </ul>
+
+
            <% end %>
         </div>
-
    </ul>
 	<%= yield %>
 	</div>
