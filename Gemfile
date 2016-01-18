@@ -42,6 +42,7 @@ group :development do
   gem 'spring'
   # Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
+  gem 'annotate'
 end
 
 group :production do
@@ -53,4 +54,5 @@ end
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro', '1.0'
+
 
