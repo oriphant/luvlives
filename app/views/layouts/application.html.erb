@@ -10,13 +10,13 @@
 <body>
 	<div class="container">
    <ul class="nav nav-tabs">
-        <li><%= link_to image_tag("LuvLives-Logo-Final.png"), welcome_index_path%></li>
+        <li><%= link_to image_tag("LuvLives-Logo-Final.png"), root_path%></li>
 
         <div class="pull-right navtext">
           <ul class="nav" role="navigation">
           
-          <%= link_to "Home", welcome_index_path %>
-          <%= link_to "About", welcome_about_path %>
+          <%= link_to "Home", root_path %>
+          <%= link_to "About", about_path %>
           <% if current_user %>
             <%= current_user.email %>! | <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
           <% else %>
