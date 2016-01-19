@@ -1,3 +1,49 @@
-<h1> Index Page </h1>
+<div>
+	<h2> Community Advice For Relationships </h2>
+	<div>
+	Add Browse Popular Topics
+		<ul>
+			<li><%= link_to "Dating" %></li>
+			<li><%= link_to "Breaking-up" %></li>
+			<li><%= link_to "Marriage" %></li>
+			<li><%= link_to "First Date" %></li>
+			<li><%= link_to "Valentines" %></li>
+			<li><%= link_to "Kids" %></li>
+			<br>
+			<li><%= link_to "Browse All", questions_path %></li>
+		</ul>
+	</div>
 
-Add Browse topics
+	<div>
+	Login
+		<ul>     
+		<%= link_to "Login with Facebook" %>
+		<%= link_to "Login with Google" %>
+		<%= link_to "Login with Twitter" %>
+		<%= link_to "Create Email Account", new_user_registration_path %>
+		</ul>
+		<h2>Log in</h2>
+				<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				  <div class="field">
+				    <%= f.label :email %><br />
+				    <%= f.email_field :email, autofocus: true %>
+				  </div>
+
+				  <div class="field">
+				    <%= f.label :password %><br />
+				    <%= f.password_field :password, autocomplete: "off" %>
+				  </div>
+
+				  <% if devise_mapping.rememberable? -%>
+				    <div class="field">
+				      <%= f.check_box :remember_me %>
+				      <%= f.label :remember_me %>
+				    </div>
+				  <% end -%>
+
+				  <div class="actions">
+				    <%= f.submit "Log in" %>
+				  </div>
+				<% end %>
+	</div>
+</div>
