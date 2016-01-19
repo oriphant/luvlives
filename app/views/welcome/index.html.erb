@@ -1,15 +1,3 @@
-<h1>All Questions</h1>
+<h1> Index Page </h1>
 
-<% if Question.exists?%>	<!-- ONLY NEED THIS UNTIL FIRST QUESTION POPULATED -->
-	<% @questions.each do |question| %>
-		<div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">	
-	  			<p><%= link_to question.title, question_path(question.id) %></p>
-	  		</h4>
-      </div>
-   	</div>
-	<% end %>
-<%else%><!-- ONLY NEED THIS UNTIL FIRST QUESTION POPULATED -->
-<h2> No Questions Entered Yet.</h2><!-- ONLY NEED THIS UNTIL FIRST QUESTION POPULATED -->
-<%end%><!-- ONLY NEED THIS UNTIL FIRST QUESTION POPULATED -->
+Add Browse topics

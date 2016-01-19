@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Luvlives</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container">
+    <%= image_tag "LuvLives-Logo-Final.png"%>
+   <ul class="nav">
+        
+          <%= link_to "home", root_path %>
+          <%= link_to "About", about_path %>
+          
+                <%= link_to "Sign In", new_user_session_path %>
+                <%= link_to "Sign Up", new_user_registration_path %>
+          
+          </ul>
+
+        </div>
+   </ul>
+	<%= yield %>
+	</div>
+
+</body>
+</html>
