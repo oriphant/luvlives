@@ -1,64 +1,57 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* ~~~~ Top Nav Bar - Start ~~~~ */
+	 .navbar-default {
+    background-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    margin-top: 20px;
+	 }
 
- .navtext {
-   margin-top: 20px;
- }
- 
- .nav {
-  margin-top: 5px;		/* Controls space above the navigation bar */
-  font-size: 120%; 		/* Font size of text in the buttons */
-  font-weight: bold;
- }
-
- .navtext a {
-  color: #b3b3b3; 		/* Color of the font */
-  padding: 0 20px 0px 20px;
- }
-
- 
- .nav-tabs {
-	height: 75px;				/* Controls the overall height of the navigation bar */
- }
-
-/* Trying to control padding around Guest Link - Not working
+	 .nav {
+	  margin-top: 5px;		/* Controls space above the navigation bar */
+	  font-size: 160%; 		/* Font size of text in the buttons */
+	  font-weight: bold;
+	 }
+/* ~~~~ Nav Bar - End ~~~~ */
 
 
 /* ~~~~ Index Page - Start ~~~~ */
-	.indextitle {
-	margin-top: 2%;
-	}
-	
-	.index ul{
-		list-style-type: none;
-	}
-	
-	.index img {
-	margin-top: 6%;
-	}
+		.indextitle {
+		margin-top: 2%;
+		}
+		
+		.index ul{
+			list-style-type: none;
+		}
+		
+		.index img {
+		margin-top: 6%;
+		}
 
-	.boxtitle {
-	color: #737373;
-	font-size: 120%;
-	font-weight: bold;
-	}
+		.boxtitle {
+		color: #737373;
+		font-size: 120%;
+		font-weight: bold;
+		}
 
 
-	.leftbox {
-	border-style: solid;
-	border-color: #b3b3b3;
-	border-radius:25px;
-	margin-top: 30px;
-	margin-right: 20px;
-	padding: 40px 50px 50px 20px;
-	}
+		.leftbox {
+		border-style: solid;
+		border-color: #b3b3b3;
+		border-radius:25px;
+		margin-top: 30px;
+		margin-right: 20px;
+		padding: 40px 50px 50px 20px;
+		}
 
-	.rightbox {
-	border-style: solid;
-	border-color: #b3b3b3;
-	border-radius:25px;
-	margin-top: 30px;
-	padding: 40px 40px 92px 5px;
-	}
+		.rightbox {
+		border-style: solid;
+		border-color: #b3b3b3;
+		border-radius:25px;
+		margin-top: 30px;
+		padding: 40px 40px 92px 5px;
+		}
 /* ~~~~ Index Page - End ~~~~ */
