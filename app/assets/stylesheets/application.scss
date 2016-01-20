@@ -4,7 +4,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-/* ~~~~ Top Nav Bar - Start ~~~~ */
+/* ~~~~ Top Horizontal Nav Bar - Start ~~~~ */
 	 .navbar-default {
     background-color: transparent;
     border-top-color: transparent;
@@ -18,8 +18,33 @@
 	  font-size: 160%; 		/* Font size of text in the buttons */
 	  font-weight: bold;
 	 }
-/* ~~~~ Nav Bar - End ~~~~ */
+/* ~~~~ Top Horizontal Nav Bar - End ~~~~ */
 
+/* ~~~~ Side Nav Bar - Start ~~~~ */
+	 .sidebar {
+	 	margin-top: 1.5%;
+	 }
+  
+   .sidebar ul{
+  	padding-left: 10%;
+	 }
+
+	 .sidebar li {
+    display: block;
+	 }
+
+	 .sidebar li:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\2212";
+    font-family: 'Glyphicons Halflings';
+    font-size: 6px;
+    float: left;
+    margin-top: 6px;
+    margin-left: -14px;
+    color: #CCCCCC;
+	 }
+
+/* ~~~~ Side Nav Bar - End ~~~~ */
 
 /* ~~~~ Index Page - Start ~~~~ */
 		.indextitle {

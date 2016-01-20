@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container">
-<!-- ~~~~ Nav Bar - Start ~~~~ -->
+<!-- ~~~~ Horizontal Nav Bar - Start ~~~~ -->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -63,10 +63,33 @@
       </div> <!-- navbar-collapse -->
     </div> <!-- container-fluid -->
   </nav>
-<!-- ~~~~ Nav Bar - End ~~~~ -->
-
-	<%= yield %>
-	</div>
-
+<!-- ~~~~ Horizontal Nav Bar - End ~~~~ -->
+<!-- ~~~~ Vertical Nav Bar - Start ~~~~ -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 sidebar">
+        <h5>Popular Categories</h5>
+        <ul class="nav-stacked">
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+        </ul>
+        <br/>
+        <h5>Popular Questions</h5>
+        <ul class="nav-stacked">
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+        </ul>
+      </div> <!-- col-md-2 - Vertical Nav Bar -->
+  <!-- ~~~~ Vertical Nav Bar - End ~~~~ -->
+  	<%= yield %>
+    </div> <!-- Vertical Nav Bar - Row -->
+  </div> <!-- Vertical Nav Bar - Container -->
+	</div> <!-- Body Container -->
 </body>
 </html>
