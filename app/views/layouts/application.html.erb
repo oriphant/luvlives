@@ -10,28 +10,38 @@
 <body>
 	<div class="container">
    <ul class="nav nav-tabs">
-        <li><%= link_to image_tag("LuvLives-Logo-Final.png"), root_path%></li>
+        <% if current_user %>
+          <li><%= link_to image_tag("LuvLives-Logo-Final.png"), questions_path%></li>
+        <%else%>
+          <li><%= link_to image_tag("LuvLives-Logo-Final.png"), root_path%></li>
+        <%end%>
 
         <div class="pull-right navtext">
           <ul class="nav" role="navigation">
           
           <%= link_to "Home", root_path %>
           <%= link_to "About", about_path %>
+
           <% if current_user %>
-            <%= current_user.email %>! | <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            <li class = "explore pull-right">
+            <%= link_to "#{(current_user.email)}"'<b class="caret"></b>'.html_safe, root_path, :id => 'setupdrop', :'data-toggle' => 'dropdown', :class => 'dropdown-toggle'%>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                  <li class="dropdown-link"><%= link_to "Sign Out", destroy_user_session_path, method: :delete  %></li>
+                </ul>
+            </li>
+
           <% else %>
-
-          <li class = "explore pull-right">
-          <%= link_to 'Guest <b class="caret"></b>'.html_safe, root_path, :id => 'setupdrop', :'data-toggle' => 'dropdown', :class => 'dropdown-toggle' %>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                <li class="dropdown-link"><%= link_to "Sign In", new_user_session_path %></li>
-                <li class="dropdown-link"><%= link_to "Sign Up", new_user_registration_path %></li>
-              </ul>
-          </li>
+            <li class = "explore pull-right">
+            <%= link_to 'Guest <b class="caret"></b>'.html_safe, root_path, :id => 'setupdrop', :'data-toggle' => 'dropdown', :class => 'dropdown-toggle' %>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                  <li class="dropdown-link"><%= link_to "Sign In", new_user_session_path %></li>
+                  <li class="dropdown-link"><%= link_to "Sign Up", new_user_registration_path %></li>
+                </ul>
+            </li>
+          <% end %>
           </ul>
+          
 
-
-           <% end %>
         </div>
    </ul>
 	<%= yield %>

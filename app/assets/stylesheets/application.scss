@@ -24,16 +24,41 @@
 
 /* Trying to control padding around Guest Link - Not working
 
-.dropdown-toggle ul > li > a {
- padding: 0 20px 0px 20px;
- }
 
- .explore ul > li > a {
- padding: 0 20px 0px 20px;
- }
+/* ~~~~ Index Page - Start ~~~~ */
+	.indextitle {
+	margin-top: 2%;
+	}
+	
+	.index ul{
+		list-style-type: none;
+	}
+	
+	.index img {
+	margin-top: 6%;
+	}
 
- #setupdrop ul > li > a {
- padding: 0 20px 0px 20px;
- }
+	.boxtitle {
+	color: #737373;
+	font-size: 120%;
+	font-weight: bold;
+	}
 
-*/
+
+	.leftbox {
+	border-style: solid;
+	border-color: #b3b3b3;
+	border-radius:25px;
+	margin-top: 30px;
+	margin-right: 20px;
+	padding: 40px 50px 50px 20px;
+	}
+
+	.rightbox {
+	border-style: solid;
+	border-color: #b3b3b3;
+	border-radius:25px;
+	margin-top: 30px;
+	padding: 40px 40px 92px 5px;
+	}
+/* ~~~~ Index Page - End ~~~~ */
