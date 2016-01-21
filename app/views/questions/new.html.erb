@@ -1,11 +1,21 @@
-<h1>Ask A Question</h1>
+<div class="row">
+  <div class="col-md-8">
+		<h1>Ask A Question</h1>
 
-<%= form_for @question do |f| %>
-   <%= f.label :title %>
-   <%= f.text_field :title %>
- 
-   <%= f.label :body %>
-   <%= f.text_area :body %>
- 
-   <%= f.submit "Save" %>
- <% end %>
+		<%= form_for @question do |f| %>
+		  <div class="form-group">
+			  <%= f.label "Question" %>
+			  <%= f.text_field :title, class: 'form-control', placeholder: "Enter Question"  %>
+			</div>
+
+			<div class="form-group">
+			  <%= f.label "Optional - You Can Enter Additional Detail" %>
+			  <%= f.text_area :body, rows: 4, class: 'form-control', placeholder: "Additional Detail" %>
+		 	</div>
+
+		 	<div class="form-group">
+		  	<%= f.submit "Save", class: 'btn btn-primary' %>
+		  </div>
+		 <% end %>
+	</div> <!-- col-md-8 -->
+</div> <!-- row -->

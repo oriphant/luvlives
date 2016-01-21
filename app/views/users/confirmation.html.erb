@@ -1,49 +1,72 @@
-<div class="container">
+<div class="row">
 	<div class="col-md-8">
+		<div class="confirm">
 		<h2>Congratulations!</h2>
 			<h4>Your account has been set up.  You are almost done.</h4>
 			<ul>
 				<li>Please confirm your account in the next <b>two days</b>.</li>
 				<li>An email has been sent to your email account.</li>
 			</ul>
-
-
-		<h2>Complete Your Full Profile</h2>
-			<h4>Optional - But helps with people know more about you and improves questions selection</h4>
-				<p>Name: <%=current_user.name%></p>
+		</div>
+		<div class="confirm">
+		<h2>Complete Your Profile</h2>
 				
-				<p>Email: <%=current_user.email%></p>
-
+				<div class = "form-group">
+					<p><label>Name:</label> <%=current_user.name%></p>
+				</div>
+				<div class = "form-group">
+					<p><label>Email:</label> <%=current_user.email%></p>
+				</div>
+				<hr/>
+	
+				<h3>Background - Optional</h3>
 				<div class="form-group">
-				<p>Background:</p>
-				<p>Tell people a bit about yourself.  This will be visable on your profile.</p>
-				<%= form_for @user do |f| %>
-			  <%= f.text_area :bio, placeholder: "Background" %>
+					<%= form_for @user do |f| %>
+					<%= f.label "Tell people about yourself." %>
+				  <%= f.text_area :bio, rows: 4, class: 'form-control', placeholder: "Background" %>
 				</div>
 
-			  <p>City and State you live in.</p>
-   			<%= f.text_field :city, placeholder: "City" %>
-   			<%= f.text_field :state, placeholder: "State" %>
+				<div class="form-group">
+				  <label>City and state you live in </label>
+				  <div class="form-inline">
+	   				<%= f.text_field :city, class: 'form-control', placeholder: "City" %>
+	   				<span class="confirminput"><%= f.text_field :state, class: 'form-control', placeholder: "State" %></span>
+	   			</div> <!-- Form Inline -->
+	   		</div> <!-- Form Group -->
+	   	
+				<div class="form-group">
+	   			<label>Your age and gender</label>
+	   			<div class="form-inline">
+		   			<%= f.text_field :age, class: 'form-control', placeholder: "Age" %>
+		  			<span class="confirminput"><%= f.select :gender, [['Male','male'],['Female','female']], {prompt: "Gender"}, {class: "form-control"} %></span>
+	   			</div><!-- Form Inline -->
+				</div><!-- Form Group -->
 
-   			<p>Your Gender and Age.</p>
-  			<%= f.select :gender, [['Male','male'],['Female','female']], prompt: "Gender" %>
-   			<%= f.text_field :age, placeholder: "Age" %>
+				<div class="form-group">
+			 	<label>Your Links</label>
+			 		<div class="form-inline">
+				 		<label><i class="fa fa-globe"></i></label>
+						<%= f.text_field :website, class: 'form-control',placeholder: "Your Website" %>
+					 	<span class="confirminput">
+					 	<label><i class="fa fa-facebook-official"></i></label>
+					 	<%= f.text_field :facebook, class: 'form-control',placeholder: "Facebook" %>
+						</span>
+					</div>
+					
+					<div class="form-inline">
+					 	<label><i class="fa fa-twitter-square"></i></label>
+					 	<%= f.text_field :twitter, class: 'form-control',placeholder: "Twitter" %>
+					 	<span class="confirminput">
+					 	<label><i class="fa fa-linkedin-square"></i></label>
+					 	<%= f.text_field :linkedin, class: 'form-control',placeholder: "LinkedIn" %>
+					 	</span>
+				 	</div>
+			 	</div>
 			 	
-			 	<p>Your Links</p>
-			 	Your Personal Website
-				<%= f.text_field :website, placeholder: "Website" %>
-			 	
-			 	Facebook
-			 	<%= f.text_field :facebook, placeholder: "Facebook" %>
-
-			 	Twitter
-			 	<%= f.text_field :twitter, placeholder: "Twitter" %>
-
-			 	LinkedIn
-			 	<%= f.text_field :linkedin, placeholder: "LinkedIn" %>
-
-			  <%= f.submit "Save" %>
+			 	<div class="form-group">
+			  	<%= f.submit "Save", class: 'btn btn-primary' %>
+				</div>
 			 <% end %>
-
+		</div> <!-- Confirm -->
 	</div> <!-- col-md-8 -->
-</div> <!-- Container -->
+</div> <!-- Row -->
