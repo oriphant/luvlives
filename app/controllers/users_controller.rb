@@ -7,7 +7,7 @@
   def update
     if current_user.update_attributes(user_params)
       flash[:notice] = "User information updated"
-      redirect_to edit_user_registration_path
+      redirect_to confirmation_user_path
     else
       flash[:error] = "Invalid user information"
       redirect_to edit_user_registration_path
@@ -22,6 +22,6 @@
    private
  
    def user_params
-     params.require(:user).permit(:name)
+     params.require(:user).permit(:name, :status, :bio, :city, :state, :gender, :age, :website, :facebook, :twitter, :linkedin)
    end
  end

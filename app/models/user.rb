@@ -30,4 +30,10 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
   has_many :posts
+  before_create :set_defaults
+
+  private
+  def set_defaults
+    self.status = 'user'
+  end
 end

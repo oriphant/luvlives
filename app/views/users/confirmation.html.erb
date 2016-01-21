@@ -20,8 +20,8 @@
 				<hr/>
 	
 				<h3>Background - Optional</h3>
+				<%= form_for @user do |f| %>
 				<div class="form-group">
-					<%= form_for @user do |f| %>
 					<%= f.label "Tell people about yourself." %>
 				  <%= f.text_area :bio, rows: 4, class: 'form-control', placeholder: "Background" %>
 				</div>
