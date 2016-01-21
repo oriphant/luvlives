@@ -15,7 +15,8 @@
   end
 
   def confirmation
-    @user = current_user
+    # @user = current_user
+    @user = User.find(params[:id])
   end
  
    private

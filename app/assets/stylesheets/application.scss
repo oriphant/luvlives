@@ -4,9 +4,11 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+/* ~~~~ Overall Application - Start ~~~~*/
 .checkbox {
 	margin-left: 2.5%;
 }
+/* ~~~~ Overall Application - End ~~~~*/
 
 /* ~~~~ Top Horizontal Nav Bar - Start ~~~~ */
 .navbar-default {
@@ -27,15 +29,12 @@
 /* ~~~~ Side Nav Bar - Start ~~~~ */
 .sidebar {
 	margin-top: 1.5%;
-
 	ul{
 		padding-left: 10%;
 	}
-
 	li {
 		display: block;
 	}
-
 	li:before {
 		/*Using a Bootstrap glyphicon as the bullet point*/
 		content: "\2212";
@@ -47,7 +46,6 @@
 		color: #CCCCCC;
 	}
 }
-
 /* ~~~~ Side Nav Bar - End ~~~~ */
 
 /* ~~~~ Index Page - Start ~~~~ */
@@ -59,7 +57,6 @@
 	ul{
 		list-style-type: none;
 	}
-
 	img {
 		margin-top: 6%;
 	}
@@ -70,7 +67,6 @@
 	font-size: 120%;
 	font-weight: bold;
 }
-
 
 .leftbox {
 	border-style: solid;
