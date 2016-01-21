@@ -4,86 +4,88 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-	 .checkbox {
-	 margin-left: 2.5%;
-	 }
+.checkbox {
+	margin-left: 2.5%;
+}
 
 /* ~~~~ Top Horizontal Nav Bar - Start ~~~~ */
-	 .navbar-default {
-    background-color: transparent;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-left-color: transparent;
-    margin-top: 20px;
-	 }
+.navbar-default {
+	background-color: transparent;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	margin-top: 20px;
+}
 
-	 .nav {
-	  margin-top: 5px;		/* Controls space above the navigation bar */
-	  font-size: 160%; 		/* Font size of text in the buttons */
-	  font-weight: bold;
-	 }
+.nav {
+	margin-top: 5px;		/* Controls space above the navigation bar */
+	font-size: 160%; 		/* Font size of text in the buttons */
+	font-weight: bold;
+}
 /* ~~~~ Top Horizontal Nav Bar - End ~~~~ */
 
 /* ~~~~ Side Nav Bar - Start ~~~~ */
-	 .sidebar {
-	 	margin-top: 1.5%;
-	 }
-  
-   .sidebar ul{
-  	padding-left: 10%;
-	 }
+.sidebar {
+	margin-top: 1.5%;
 
-	 .sidebar li {
-    display: block;
-	 }
+	ul{
+		padding-left: 10%;
+	}
 
-	 .sidebar li:before {
-    /*Using a Bootstrap glyphicon as the bullet point*/
-    content: "\2212";
-    font-family: 'Glyphicons Halflings';
-    font-size: 6px;
-    float: left;
-    margin-top: 6px;
-    margin-left: -14px;
-    color: #CCCCCC;
-	 }
+	li {
+		display: block;
+	}
+
+	li:before {
+		/*Using a Bootstrap glyphicon as the bullet point*/
+		content: "\2212";
+		font-family: 'Glyphicons Halflings';
+		font-size: 6px;
+		float: left;
+		margin-top: 6px;
+		margin-left: -14px;
+		color: #CCCCCC;
+	}
+}
 
 /* ~~~~ Side Nav Bar - End ~~~~ */
 
 /* ~~~~ Index Page - Start ~~~~ */
-		.indextitle {
-		margin-top: 2%;
-		}
-		
-		.index ul{
-			list-style-type: none;
-		}
-		
-		.index img {
+.indextitle {
+	margin-top: 2%;
+}
+
+.index {
+	ul{
+		list-style-type: none;
+	}
+
+	img {
 		margin-top: 6%;
-		}
+	}
+}
 
-		.boxtitle {
-		color: #737373;
-		font-size: 120%;
-		font-weight: bold;
-		}
+.boxtitle {
+	color: #737373;
+	font-size: 120%;
+	font-weight: bold;
+}
 
 
-		.leftbox {
-		border-style: solid;
-		border-color: #b3b3b3;
-		border-radius:25px;
-		margin-top: 30px;
-		margin-right: 20px;
-		padding: 40px 50px 50px 20px;
-		}
+.leftbox {
+	border-style: solid;
+	border-color: #b3b3b3;
+	border-radius:25px;
+	margin-top: 30px;
+	margin-right: 20px;
+	padding: 40px 50px 50px 20px;
+}
 
-		.rightbox {
-		border-style: solid;
-		border-color: #b3b3b3;
-		border-radius:25px;
-		margin-top: 30px;
-		padding: 40px 40px 92px 5px;
-		}
+.rightbox {
+	border-style: solid;
+	border-color: #b3b3b3;
+	border-radius:25px;
+	margin-top: 30px;
+	padding: 40px 40px 92px 5px;
+}
 /* ~~~~ Index Page - End ~~~~ */

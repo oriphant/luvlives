@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="col-md-8">
+		<h2>Congratulations!</h2>
+			<h4>Your account has been set up.  You are almost done.</h4>
+			<ul>
+				<li>Please confirm your account in the next <b>two days</b>.</li>
+				<li>An email has been sent to your email account.</li>
+			</ul>
+
+
+		<h2>Complete Your Full Profile</h2>
+			<h4>Optional - But helps with people know more about you and improves questions selection</h4>
+				<p>Name: <%=current_user.name%></p>
+				
+				<p>Email: <%=current_user.email%></p>
+
+				<div class="form-group">
+				<p>Background:</p>
+				<p>Tell people a bit about yourself.  This will be visable on your profile.</p>
+				<%= form_for @user do |f| %>
+			  <%= f.text_area :bio, placeholder: "Background" %>
+				</div>
+
+			  <p>City and State you live in.</p>
+   			<%= f.text_field :city, placeholder: "City" %>
+   			<%= f.text_field :state, placeholder: "State" %>
+
+   			<p>Your Gender and Age.</p>
+  			<%= f.select :gender, [['Male','male'],['Female','female']], prompt: "Gender" %>
+   			<%= f.text_field :age, placeholder: "Age" %>
+			 	
+			 	<p>Your Links</p>
+			 	Your Personal Website
+				<%= f.text_field :website, placeholder: "Website" %>
+			 	
+			 	Facebook
+			 	<%= f.text_field :facebook, placeholder: "Facebook" %>
+
+			 	Twitter
+			 	<%= f.text_field :twitter, placeholder: "Twitter" %>
+
+			 	LinkedIn
+			 	<%= f.text_field :linkedin, placeholder: "LinkedIn" %>
+
+			  <%= f.submit "Save" %>
+			 <% end %>
+
+	</div> <!-- col-md-8 -->
+</div> <!-- Container -->
