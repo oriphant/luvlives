@@ -19,4 +19,16 @@
 class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers
+
+  before_create :set_defaults
+
+  private
+  def set_defaults
+    self.public = 'public'
+    self.genderlimit = 'none'
+    self.agelimit = 'none'
+    self.anonymous = false
+    self.views = 0
+    self.shared = 0
+  end
 end

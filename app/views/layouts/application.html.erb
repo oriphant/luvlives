@@ -90,6 +90,24 @@
         </ul>
       </div> <!-- col-md-2 - Vertical Nav Bar -->
   <!-- ~~~~ Vertical Nav Bar - End ~~~~ -->
+  <!-- Flash Error Message - Start -->
+         <% if flash[:notice] %>
+         <div class="alert alert-info">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:notice] %>
+         </div>
+       <% elsif flash[:error] %>
+         <div class="alert alert-warning">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:error] %>
+         </div>
+       <% elsif flash[:alert] %>
+         <div class="alert alert-warning">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <%= flash[:alert] %>
+         </div>
+       <% end %>
+<!-- Flash Error Message - End -->
   	<%= yield %>
     </div> <!-- Vertical Nav Bar - Row -->
   </div> <!-- Vertical Nav Bar - Container -->
