@@ -20,14 +20,14 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers
 
-  before_create :set_defaults
+  before_create :set_defaults # does not allow you to change value in creating.
 
   private
   def set_defaults
-    self.public = 'public'
+    # self.public = true
     self.genderlimit = 'none'
     self.agelimit = 'none'
-    self.anonymous = false
+    # self.anonymous = false
     self.views = 0
     self.shared = 0
   end
