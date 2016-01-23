@@ -5,10 +5,10 @@ class CreateQuestions < ActiveRecord::Migration
       t.text :body
       t.references :user, index: true, foreign_key: true
       t.integer :views
-      t.boolean :anonymous
+      t.boolean :anonymous #, default: false #, null: false
       t.integer :shared
-      t.boolean :public
-      t.boolean :genderlimit
+      t.boolean :public #, default: true #, null: false
+      t.string :genderlimit
       t.string :agelimit
 
       t.timestamps null: false

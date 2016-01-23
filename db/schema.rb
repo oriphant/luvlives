@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(version: 20160116074705) do
     t.text     "body"
     t.integer  "user_id"
     t.integer  "views"
-    t.boolean  "anonymous"
+    t.boolean  "anonymous",   default: false
     t.integer  "shared"
-    t.boolean  "public"
-    t.boolean  "genderlimit"
+    t.boolean  "public",      default: true
+    t.string   "genderlimit"
     t.string   "agelimit"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"

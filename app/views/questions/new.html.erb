@@ -13,17 +13,26 @@
 			  <%= f.text_area :body, rows: 4, class: 'form-control', placeholder: "Additional Detail" %>
 		 	</div>
 
-
-		<div class="field">
-    <%= f.label "Anonymous" %> <br />
-    <%= f.check_box :anonymous %> <br />
-		</div>
-
-		<div class="field">
-    <%= f.label "Public" %> <br />
-    <%= f.check_box :public %> <br />
-		</div>
-
+			<div class="form-group">
+		    <%= f.label "Ask your questions anonymously" %>
+		    <%= f.check_box :anonymous %>
+			</div>
+			<hr/>
+			<h3>Limit Responses</h3>
+			<br/>
+			<div class="form-group">
+	 			<div class="form-inline">
+	 				<label>Limit responses by age</label>
+	  			<span class="confirminput"><%= f.select :agelimit, ['Under 20', '20-30', '30-40', '40-50', '50-60', 'Over 60'], {prompt: "Age Group"}, {class: "form-control"} %></span>
+	 			</div><!-- Form Inline -->
+	 		</div>
+	 		<div class="form-group">
+	 			<div class="form-inline">
+	 				<label>Limit responses by gender</label>
+	  			<span class="confirminput"><%= f.select :genderlimit, [['Male','male'],['Female','female']], {prompt: "Gender"}, {class: "form-control"} %></span>
+	 			</div><!-- Form Inline -->
+			</div><!-- Form Group -->
+			<br/>
 		 	<div class="form-group">
 		  	<%= f.submit "Save", class: 'btn btn-primary' %>
 		  </div>
