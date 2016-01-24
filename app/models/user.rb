@@ -33,6 +33,14 @@ class User < ActiveRecord::Base
   
   before_create :set_defaults
 
+  def admin?
+    role == 'admin'
+  end
+ 
+  def moderator?
+    role == 'moderator'
+  end
+
   private
   def set_defaults
     self.status = 'user'
