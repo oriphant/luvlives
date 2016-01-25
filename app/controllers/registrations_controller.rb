@@ -11,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   # Sets route for after updating profile
   def after_update_path_for(resource)
-    questions_path
+    questions_path(params[:id])
   end
 
   # Determines what variable can be saved to the database

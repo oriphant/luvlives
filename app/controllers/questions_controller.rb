@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def index
   	@questions = Question.all
+    authorize @questions
   end
 
   def show
@@ -9,11 +10,13 @@ class QuestionsController < ApplicationController
 
   def new
     @question=Question.new
+    authorize @question
   end
 
   def create
     @question = Question.new(question_params)
     @question.user = current_user
+    authorize @question
      if @question.save
        flash[:notice] = "Question was saved successfully."
        redirect_to @question
@@ -25,10 +28,12 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
+    authorize @question
   end
 
   def update
     @question = Question.find(params[:id])
+    authorize @question
     if @question.update_attributes(question_params)
      flash[:notice] = "Your Question Was Successfully Updated."
      redirect_to @question

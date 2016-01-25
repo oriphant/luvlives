@@ -23,13 +23,13 @@
 			<div class="form-group">
 	 			<div class="form-inline">
 	 				<label>Limit responses by age</label>
-	  			<span class="confirminput"><%= f.select :agelimit, ['Under 20', '20-30', '30-40', '40-50', '50-60', 'Over 60'], {prompt: "Age Group"}, {class: "form-control"} %></span>
+	  			<span class="confirminput"><%= f.select :agelimit, [['Age Group', 'none'],'Under 20', '20-30', '30-40', '40-50', '50-60', 'Over 60'], :selected => 'Age Group'%></span>
 	 			</div><!-- Form Inline -->
 	 		</div>
 	 		<div class="form-group">
 	 			<div class="form-inline">
 	 				<label>Limit responses by gender</label>
-	  			<span class="confirminput"><%= f.select :genderlimit, [['Male','male'],['Female','female']], {prompt: "Gender"}, {class: "form-control"} %></span>
+	  			<span class="confirminput"><%= f.select :genderlimit, [['Gender', 'none'],['Male','male'],['Female','female']], :selected => 'Gender' %></span>
 	 			</div><!-- Form Inline -->
 			</div><!-- Form Group -->
 			<br/>

@@ -55,5 +55,6 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 4.5.0'
 gem 'devise'
 gem 'figaro', '1.0'
+gem 'pundit'
 
 

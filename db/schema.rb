@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20160116074705) do
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.integer  "views"
+    t.integer  "views",       default: 0
     t.boolean  "anonymous",   default: false
-    t.integer  "shared"
+    t.integer  "shared",      default: 0
     t.boolean  "public",      default: true
     t.string   "genderlimit"
     t.string   "agelimit"
