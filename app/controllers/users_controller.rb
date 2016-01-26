@@ -15,10 +15,10 @@
   end
 
   def confirmation
-    @user = current_user
-    # @user = User.find(params[:id])
+    # @user = current_user
+    @user = User.find(params[:id])
     # if @user.save
-    #   redirect_to questions_path
+      redirect_to questions_path
     # end
   end
  
