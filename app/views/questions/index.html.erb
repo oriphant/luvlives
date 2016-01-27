@@ -7,8 +7,18 @@
       <div class="media-body">
         <h4 class="media-heading">	
 	  			<p><%= link_to question.title, question_path(question.id) %></p>
-	  			<small><%= question.answers.count %> Answers</small>
 	  		</h4>
+
+        <% question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
+ 	 				  <%= render 'answers/form', answer: a %>
+        <% end %>
+
+	        <div class="container">
+		        <div class="row">
+			        <%= button_to "Answer Question", new_question_answer_path(question.id), method: :get, class: 'btn btn-default' %>
+			        <small><%= question.answers.count %> Answers</small>
+		      	</div> <!-- row -->
+      	</div><!-- containter -->
       </div> <!-- Media Body -->
    	</div> <!-- Media -->
 	<% end %>

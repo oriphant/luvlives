@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   protected
   # Sets route for Devise after sign-in --> This needs to stay in application controller
   def after_sign_in_path_for(resource)
-      questions_path(resource.id)
+    questions_path
   end
 
   # def configure_permitted_parameters

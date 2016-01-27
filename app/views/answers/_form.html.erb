@@ -1,0 +1,11 @@
+
+<h4><%= answer.user.name %></h4>
+
+<p>
+  <%= answer.body %>
+</p> 
+
+<% if current_user.present? && current_user.id == answer.user_id%>
+	<%= link_to 'Edit Answer', edit_question_answer_path(answer, :question_id => answer.question_id)%>
+  <!-- answer is the 'a' that is passed from the each do in the index file.  Could have named answer anything -->
+<%end%>
