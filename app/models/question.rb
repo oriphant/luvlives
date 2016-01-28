@@ -19,6 +19,8 @@
 class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers
+  has_many :labelings, as: :labelable
+  has_many :labels, through: :labelings
 
   #before_create :set_defaults # does not allow you to change value in creating.
   default_scope { order('created_at DESC') }

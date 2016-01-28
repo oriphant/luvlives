@@ -12,6 +12,10 @@
 			  <%= f.label "Optional - You Can Enter Additional Detail (If Needed)" %>
 			  <%= f.text_area :body, rows: 4, class: 'form-control', placeholder: "Additional Detail" %>
 		 	</div>
+		 	
+		 	<div class="form-group">
+				<%= render partial: 'labels/form', locals: { f: f, labels: @question.labels } %>
+			</div>
 
 			<div class="form-group">
 		    <%= f.label "Ask your questions anonymously" %>
