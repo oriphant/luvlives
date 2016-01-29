@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'labels/show'
+  resources :labels, only: [:show]
 
   resources :questions do
   	resources :answers, only: [:create, :new, :update, :edit]

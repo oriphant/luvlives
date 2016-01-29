@@ -20,10 +20,11 @@ class QuestionsController < ApplicationController
     @question.user = current_user
     authorize @question
      if @question.save
-       flash[:notice] = "Question was saved successfully."
-       redirect_to @question
+      @question.labels = Label.update_labels(params[:question][:labels])
+      flash[:notice] = "Question was saved successfully."
+      redirect_to @question
      else
-       flash[:error] = "There was an error saving the question. Please try again."
+      flash[:error] = "There was an error saving the question. Please try again."
        render :new
      end
   end
@@ -37,7 +38,8 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     authorize @question
     if @question.update_attributes(question_params)
-     flash[:notice] = "Your Question Was Successfully Updated."
+      @question.labels = Label.update_labels(params[:question][:labels])
+      flash[:notice] = "Your Question Was Successfully Updated."
      redirect_to @question
     else
      flash[:error] = "There was an error updating your question. Please try again."

@@ -1,2 +1,11 @@
-<h1>Labels#show</h1>
-<p>Find me in app/views/labels/show.html.erb</p>
+<div class="row">
+	<div class="col-md-8">
+	<h1>Label: <%= @label.name %></h1>
+		<% @label.questions.each do |question| %> 
+			<div>
+				Question: <%= link_to question.title, question %>
+			</div>
+		<% end %>
+	</div>
+</div>
+￼

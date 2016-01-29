@@ -1,25 +1,34 @@
-<h1><%= @question.title %></h1>
-<p><%= @question.body %></p>
+<div class="row">
+  <div class="col-md-8">
+		<!-- Labels / Categories - Start -->
+		<br/>
+		<%= render partial: "labels/list", locals: { labels: @question.labels } %>
+		<!-- Labels / Categories - End -->
 
-<% if policy(@question).edit? %>
-	<%= link_to "Edit", edit_question_path(@question), class: 'btn btn-primary' %>
-<% end %>
+		<h1><%= @question.title %></h1>
+		<p><%= @question.body %></p>
 
-<% @question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
-		<% unless a.user.nil? %> <!-- Some entries in my db are not associated with a user therefore causing an error -->
-			<h4><%= a.user.name%></h4>
+		<% if policy(@question).edit? %>
+			<%= link_to "Edit Question", edit_question_path(@question), class: 'btn btn-default btn-xs' %>
 		<% end %>
-		<p>
-		  <%= a.body %>
-		</p> 
 
-		<% if current_user.present? && current_user.id == @answer.user_id%>
-			<%= link_to 'Edit Answer', edit_question_answer_path(answer, :question_id => answer.question_id)%>
-		  <!-- answer is the 'a' that is passed from the each do in the index file.  Could have named answer anything -->
-		<%end%>
-<% end %>
+		<% @question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
+				<% unless a.user.nil? %> <!-- Some entries in my db are not associated with a user therefore causing an error -->
+					<h4><%= a.user.name%></h4>
+				<% end %>
+				<p>
+				  <%= a.body %>
+				</p> 
 
-<!-- 		<div class="field">
-    <f.label "Public" %> <br />
-    < f.check_box :public %> <br />
-		</div> -->
+				<% if current_user.present? && current_user.id == @answer.user_id%>
+					<%= link_to 'Edit Answer', edit_question_answer_path(answer, :question_id => answer.question_id)%>
+				  <!-- answer is the 'a' that is passed from the each do in the index file.  Could have named answer anything -->
+				<%end%>
+		<% end %>
+
+		<!-- 		<div class="field">
+		    <f.label "Public" %> <br />
+		    < f.check_box :public %> <br />
+				</div> -->
+  </div> <!-- col-md-8 -->
+</div> <!-- row -->
