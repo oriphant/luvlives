@@ -30,8 +30,7 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
   has_many :posts
-  
-  before_create :set_defaults
+  mount_uploader :avatar, AvatarUploader
 
   def admin?
     status == 'admin'
@@ -41,8 +40,4 @@ class User < ActiveRecord::Base
     status == 'moderator'
   end
 
-  private
-  def set_defaults
-    self.status = 'user'
-  end
 end

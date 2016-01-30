@@ -1,3 +1,12 @@
+<small>
+	<% if answer.user.avatar? %>
+		<%= image_tag(answer.user.avatar.profile.url, :class => "circle") %>
+ 		Written <%= time_ago_in_words(answer.created_at) %> ago.
+ 	<% else %>
+ 		<i class="fa fa-user"></i>
+ 		Written <%= time_ago_in_words(answer.created_at) %> ago.
+ 	<% end %>
+</small>
 
 <h4><%= answer.user.name %></h4>
 

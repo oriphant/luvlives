@@ -24,7 +24,7 @@
  
    private 
    def user_params
-     params.require(:user).permit(:name, :status, :bio, :city, :state, :gender, :age, :website, :facebook, :twitter, :linkedin)
+     params.require(:user).permit(:name, :status, :bio, :city, :state, :gender, :age, :website, :facebook, :twitter, :linkedin, :avatar)
    end
 
  end

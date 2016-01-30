@@ -22,6 +22,13 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Enter password confirmation" %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
+
       <div class="form-group">
         <%= f.submit "Sign up", class: 'btn btn-primary' %>
       </div>

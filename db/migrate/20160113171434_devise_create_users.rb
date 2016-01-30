@@ -3,7 +3,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       ## Devise customization
       t.string :name
-      t.string :status
+      t.string :status, :default => "user"
       t.text :bio
       t.string :city
       t.string :state

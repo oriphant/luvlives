@@ -56,5 +56,8 @@ gem 'font-awesome-sass', '~> 4.5.0'
 gem 'devise'
 gem 'figaro', '1.0'
 gem 'pundit'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 
