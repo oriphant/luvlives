@@ -3,7 +3,7 @@
 		<%= image_tag(answer.user.avatar.profile.url, :class => "circle") %>
  		Written <%= time_ago_in_words(answer.created_at) %> ago.
  	<% else %>
- 		<i class="fa fa-user"></i>
+ 		<%= image_tag("user-profile-size-pic.png", :class => "circle") %>
  		Written <%= time_ago_in_words(answer.created_at) %> ago.
  	<% end %>
 </small>

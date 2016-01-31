@@ -1,0 +1,34 @@
+
+<% if current_user.avatar? %>
+<%= image_tag(current_user.avatar.profile.url) %>
+<% else %>
+	<%= image_tag("user-profile-size-pic.png") %>
+<% end %>
+
+<%=current_user.name%>
+<%=current_user.city%> <%=current_user.state%>
+</br>
+
+Email Address: <%=current_user.email%>
+</br>
+<%=current_user.bio%>
+<br/>
+Age: <%=current_user.age%>
+
+<br/>
+Gender <%=current_user.gender.titleize%>
+
+<h5>Your Links</h5>
+
+<% if current_user.website? || current_user.facebook? || current_user.twitter? || current_user.linkedin? %>
+	<%= current_user.website%>
+	<%= current_user.facebook%>
+	<%= current_user.twitter%>
+	<%= current_user.linkedin%>
+<%else%>
+	Add a some of your personal links to your profile now.
+	<%= link_to "Update Profile", edit_user_registration_path %>
+<%end%>
+
+
+
