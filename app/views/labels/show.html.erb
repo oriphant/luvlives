@@ -1,11 +1,20 @@
 <div class="row">
 	<div class="col-md-8">
-	<h1>Label: <%= @label.name %></h1>
+	<h1>Questions Related To <%= @label.name.titleize %></h1>
+		
 		<% @label.questions.each do |question| %> 
-			<div>
-				Question: <%= link_to question.title, question %>
+			<div>				
+				<%= link_to question.title, question %>
+				
+				<!-- Should show answers for each question -->
+					<% question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
+	 	 				  <%= render 'answers/form', answer: a %>
+	        <% end %>
+	      <!-- Answers for each question - end -->
+
 			</div>
 		<% end %>
+
 	</div>
 </div>
 ￼
