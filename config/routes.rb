@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   resources :labels, only: [:show]
 
   resources :questions do
-  	resources :answers, only: [:create, :new, :update, :edit]
+    member do
+      post 'vote'
+    end
+  	resources :answers, only: [:create, :new, :update, :edit] do
+      member do
+        post 'vote'
+      end
+    end
   end
 
   devise_for :users, controllers: { registrations: "registrations" }

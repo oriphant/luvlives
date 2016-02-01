@@ -21,6 +21,7 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :labelings, as: :labelable
   has_many :labels, through: :labelings
+  has_many :votes, as: :voteable
 
   #before_create :set_defaults # does not allow you to change value in creating.
   default_scope { order('created_at DESC') }

@@ -1,3 +1,11 @@
+<!-- ~~~~~~~~~~ -->
+ <div>
+ 	
+  <div><%= link_to  " ", vote_question_answer_path('questions', 'question_id', 'answers', ':id',  vote: true), method: 'post', class: 'glyphicon glyphicon-chevron-up' %></div>
+  <div><strong><%= answer.votes.size %></strong></div>
+   <div><%= link_to " ", vote_question_answer_path('questions', 'question_id', 'answers', ':id', vote: false), method: 'post', class: 'glyphicon glyphicon-chevron-down' %></div>
+ </div>
+<!-- ~~~~~~~ -->
 <small>
 	<% if answer.user.avatar? %>
 		<%= image_tag(answer.user.avatar.profile.url, :class => "circle") %>

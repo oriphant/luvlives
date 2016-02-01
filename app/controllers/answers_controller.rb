@@ -38,6 +38,14 @@ class AnswersController < ApplicationController
     end
   end
 
+  def vote
+    @user=current_user
+    Vote.create(voteable: @answer, user_id: @user, vote: params[:vote])
+      flash[:notice] = "You voted."
+    redirect_to :back
+  end
+
+
  	private
 
  	def answer_params
