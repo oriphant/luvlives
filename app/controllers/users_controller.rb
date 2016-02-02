@@ -1,6 +1,7 @@
  class UsersController < ApplicationController
-   before_action :authenticate_user!
-
+  before_action :authenticate_user!
+  impressionist
+  
   def edit
   end
   

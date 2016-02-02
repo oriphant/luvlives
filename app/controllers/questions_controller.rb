@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  impressionist actions: [:show], unique: [:session_hash]
+
   def index
   	@questions = Question.all
     authorize @questions

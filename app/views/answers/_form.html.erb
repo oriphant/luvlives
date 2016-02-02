@@ -4,6 +4,7 @@
 		
 		<%= render partial: 'votes/voter', locals: { answer: answer} %>
 
+		<%= answer.impressionist_count%>  views so far! 
 		<small>
 			<% if answer.user.avatar? %>
 				<%= image_tag(answer.user.avatar.profile.url, :class => "circle") %>

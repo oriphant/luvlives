@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
- 	
+ 	impressionist actions: [:show], unique: [:session_hash]
+  
   def new
  		@question = Question.find(params[:question_id])
  		@answers = @question.answers

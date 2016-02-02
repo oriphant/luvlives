@@ -14,6 +14,8 @@
 #
 
 class Answer < ActiveRecord::Base
+  is_impressionable
+  
   belongs_to :user
   belongs_to :question
   has_many :votes

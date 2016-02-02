@@ -17,6 +17,8 @@
 #
 
 class Question < ActiveRecord::Base
+  is_impressionable
+  
   belongs_to :user
   has_many :answers
   has_many :labelings, as: :labelable
