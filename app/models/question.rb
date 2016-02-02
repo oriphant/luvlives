@@ -6,11 +6,11 @@
 #  title       :string
 #  body        :text
 #  user_id     :integer
-#  views       :integer
-#  anonymous   :boolean
-#  shared      :integer
-#  public      :boolean
-#  genderlimit :boolean
+#  views       :integer          default(0)
+#  anonymous   :boolean          default(FALSE)
+#  shared      :integer          default(0)
+#  public      :boolean          default(TRUE)
+#  genderlimit :string
 #  agelimit    :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

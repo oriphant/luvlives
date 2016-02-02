@@ -1,26 +1,27 @@
 <div class="container">
+	<div class="col-md-8">
+		<h1>Recent Questions</h1>
 
-<h1>Recent Questions</h1>
+		<% @questions.each do |question| %>
+			<div class="media">
+	      <div class="media-body">
+	        <h4 class="media-heading">
+		  			<p><%= link_to question.title, question_path(question.id) %></p>
+		  			<hr/>
+		  		</h4>
 
-	<% @questions.each do |question| %>
-		<div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">	
-	  			<p><%= link_to question.title, question_path(question.id) %></p>
-	  		</h4>
+	        <% question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
+	 	 				  <%= render 'answers/form', answer: a %>
+	        <% end %>
 
-        <% question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
- 	 				  <%= render 'answers/form', answer: a %>
-        <% end %>
-
-	        <div class="container">
-		        <div class="row">
-			        <%= button_to "Answer Question", new_question_answer_path(question.id), method: :get, class: 'btn btn-default btn-xs' %>
-			        <small><%= question.answers.count %> Answers</small>
-			        <hr/>
-		      	</div> <!-- row -->
-      	</div><!-- containter -->
-      </div> <!-- Media Body -->
-   	</div> <!-- Media -->
-	<% end %>
+		        <div class="container">
+			        <div class="row">
+				        <%= button_to "Answer Question", new_question_answer_path(question.id), method: :get, class: 'btn btn-default btn-xs' %>
+				        <small><%= question.answers.count %> Answers</small>
+			      	</div> <!-- row -->
+	      	</div><!-- containter -->
+	      </div> <!-- Media Body -->
+	   	</div> <!-- Media -->
+		<% end %>
+	</div> <!-- col-md-8 -->
 </div> <!-- containter -->

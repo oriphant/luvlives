@@ -4,6 +4,16 @@
 #
 #  id                     :integer          not null, primary key
 #  name                   :string
+#  status                 :string           default("user")
+#  bio                    :text
+#  city                   :string
+#  state                  :string
+#  gender                 :string
+#  age                    :integer
+#  facebook               :string
+#  twitter                :string
+#  linkedin               :string
+#  website                :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -20,6 +30,7 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  avatar                 :string
 #
 
 class User < ActiveRecord::Base
@@ -30,6 +41,7 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
   has_many :posts
+  has_many :votes
   mount_uploader :avatar, AvatarUploader
 
   def admin?

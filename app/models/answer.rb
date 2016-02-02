@@ -16,4 +16,19 @@
 class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :question
+  has_many :votes
+
+  def up_votes
+    votes.where(value: 1).count
+  end
+
+  def down_votes
+    votes.where(value: -1).count
+  end
+
+  def points
+  	votes.sum(:value)
+  end
+
+  default_scope { order('created_at DESC') }
 end
