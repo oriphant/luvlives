@@ -1,11 +1,11 @@
 <!-- ~~~~~ Vote Code - Start ~~~~~ -->
- <div>
- 	
+<div class="vote-arrows pull-left">
   <div><%= link_to  " ", answer_vote_path(answer,  vote: true), method: 'post', class: 'glyphicon glyphicon-chevron-up' %></div>
-  <div><strong><%= answer.total_vote %></strong></div>
-   <div><%= link_to " ", answer_vote_path(answer, vote: false), method: 'post', class: 'glyphicon glyphicon-chevron-down' %></div>
- </div>
+  	<div><strong><%= answer.total_vote %></strong></div>
+  <div><%= link_to " ", answer_vote_path(answer, vote: false), method: 'post', class: 'glyphicon glyphicon-chevron-down' %></div>
+</div>
 <!-- ~~~~~ Vote Code - End ~~~~~ -->
+
 <small>
 	<% if answer.user.avatar? %>
 		<%= image_tag(answer.user.avatar.profile.url, :class => "circle") %>
