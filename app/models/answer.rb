@@ -17,4 +17,9 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :question
   has_many :votes, as: :voteable
+
+  def total_vote
+    self.votes.where(vote: true).size - self.votes.where(vote: false).size
+  end
+  
 end

@@ -6,11 +6,11 @@ Rails.application.routes.draw do
     member do
       post 'vote'
     end
-  	resources :answers, only: [:create, :new, :update, :edit] do
-      member do
-        post 'vote'
-      end
-    end
+  	resources :answers, only: [:create, :new, :update, :edit]
+  end
+
+  resources :answers, only: [] do
+    post 'vote'
   end
 
   devise_for :users, controllers: { registrations: "registrations" }

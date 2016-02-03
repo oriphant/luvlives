@@ -1,11 +1,11 @@
-<!-- ~~~~~~~~~~ -->
+<!-- ~~~~~ Vote Code - Start ~~~~~ -->
  <div>
  	
-  <div><%= link_to  " ", vote_question_answer_path('questions', 'question_id', 'answers', ':id',  vote: true), method: 'post', class: 'glyphicon glyphicon-chevron-up' %></div>
-  <div><strong><%= answer.votes.size %></strong></div>
-   <div><%= link_to " ", vote_question_answer_path('questions', 'question_id', 'answers', ':id', vote: false), method: 'post', class: 'glyphicon glyphicon-chevron-down' %></div>
+  <div><%= link_to  " ", answer_vote_path(answer,  vote: true), method: 'post', class: 'glyphicon glyphicon-chevron-up' %></div>
+  <div><strong><%= answer.total_vote %></strong></div>
+   <div><%= link_to " ", answer_vote_path(answer, vote: false), method: 'post', class: 'glyphicon glyphicon-chevron-down' %></div>
  </div>
-<!-- ~~~~~~~ -->
+<!-- ~~~~~ Vote Code - End ~~~~~ -->
 <small>
 	<% if answer.user.avatar? %>
 		<%= image_tag(answer.user.avatar.profile.url, :class => "circle") %>

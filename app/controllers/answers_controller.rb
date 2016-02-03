@@ -39,12 +39,10 @@ class AnswersController < ApplicationController
   end
 
   def vote
-    @user=current_user
-    Vote.create(voteable: @answer, user_id: @user, vote: params[:vote])
+    Vote.create(voteable: @answer, user_id: current_user, vote: params[:vote])
       flash[:notice] = "You voted."
     redirect_to :back
   end
-
 
  	private
 
