@@ -15,4 +15,12 @@ class Labeling<ActiveRecord::Base
 belongs_to :labelable, polymorphic: true 
 belongs_to :label
 
+def self.top_five
+	Labeling.group(:label_id).order('count_id DESC').limit(5)
+end
+
+def self.top(key)
+	self.top_five.count(:id).keys[key]
+end
+
 end

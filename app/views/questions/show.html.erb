@@ -14,9 +14,7 @@
 
 		<% @question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
 				<hr/>
-				<% unless a.user.nil? %> <!-- Some entries in my db are not associated with a user therefore causing an error -->
-					<h4><%= a.user.name%></h4>
-				<% end %>
+				<h4><%= a.user.name%></h4>
 				<p>
 				  <%= a.body %>
 				</p> 
