@@ -14,8 +14,9 @@
 		 	<% end %>
 		</small>
 
-		<h4><%= answer.user.name %></h4>
-
+		<h5><%= answer.user.name %></h5>
+		<%answer.increment%>
+		Views: <%= answer.views%>
 		<p>
 		  <%= answer.body %>
 		</p> 

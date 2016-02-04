@@ -30,5 +30,11 @@ class Answer < ActiveRecord::Base
   	votes.sum(:value)
   end
 
+  def increment
+    self.views ||= 0
+    self.views += 1
+    self.save
+  end
+
   default_scope { order('created_at DESC') }
 end

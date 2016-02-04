@@ -13,6 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :twitter
       t.string :linkedin
       t.string :website
+      t.integer :views
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

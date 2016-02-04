@@ -25,6 +25,12 @@ class Question < ActiveRecord::Base
   #before_create :set_defaults # does not allow you to change value in creating.
   default_scope { order('created_at DESC') }
   
+  def increment
+  self.views ||= 0
+  self.views += 1
+  self.save
+  end
+  
   # private
   # def set_defaults
     # self.public = true

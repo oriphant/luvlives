@@ -30,5 +30,8 @@ Gender <%=current_user.gender.titleize%>
 	<%= link_to "Update Profile", edit_user_registration_path %>
 <%end%>
 
+<% current_user.increment %>
+Profile views: <%= current_user.views%>
+
 
 

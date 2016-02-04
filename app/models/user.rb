@@ -52,4 +52,10 @@ class User < ActiveRecord::Base
     status == 'moderator'
   end
 
+  def increment
+    self.views ||= 0
+    self.views += 1
+    self.save
+  end
+
 end

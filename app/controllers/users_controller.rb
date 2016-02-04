@@ -1,8 +1,5 @@
  class UsersController < ApplicationController
    before_action :authenticate_user!
-
-  def edit
-  end
   
   def update
     if current_user.update_attributes(user_params)
@@ -24,7 +21,7 @@
  
    private 
    def user_params
-     params.require(:user).permit(:name, :status, :bio, :city, :state, :gender, :age, :website, :facebook, :twitter, :linkedin, :avatar)
+     params.require(:user).permit(:name, :status, :bio, :city, :state, :gender, :age, :website, :facebook, :twitter, :linkedin, :avatar, :views)
    end
 
  end

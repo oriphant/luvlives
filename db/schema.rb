@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160201070632) do
     t.string   "twitter"
     t.string   "linkedin"
     t.string   "website"
+    t.integer  "views"
     t.string   "email",                  default: "",     null: false
     t.string   "encrypted_password",     default: "",     null: false
     t.string   "reset_password_token"

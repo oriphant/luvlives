@@ -41,7 +41,7 @@ class AnswersController < ApplicationController
  	private
 
  	def answer_params
- 	  params.require(:answer).permit(:body) #Do I need others like views, helpful, sharedcount
+ 	  params.require(:answer).permit(:body, :views) #Do I need others like views, helpful, sharedcount
  	end
 
 end

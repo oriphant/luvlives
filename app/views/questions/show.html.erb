@@ -11,12 +11,14 @@
 		<% if policy(@question).edit? %>
 			<%= link_to "Edit Question", edit_question_path(@question), class: 'btn btn-default btn-xs' %>
 		<% end %>
+		Question Views: <%= @question.views %>
 
 		<% @question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
 			<hr/>
 				<h4><%= a.user.name%></h4>
 			<p>
 			  <%= a.body %>
+			  Answer Views: <%= a.views %>
 			</p> 
 
 			<% if current_user.present? && current_user.id == @answer.user_id%>
