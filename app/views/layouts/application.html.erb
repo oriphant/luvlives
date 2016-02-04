@@ -89,7 +89,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2 sidebar">
-        <%if Label.exists? %>
+        <%if Label.count >=5 %>
         <h5>Popular Categories</h5>
         <ul class="nav-stacked">
           <li><%= link_to Label.find(Labeling.group(:label_id).order('count_id DESC').limit(5).count(:id).keys[0]).name.titleize,label_path(:id =>Label.find(Labeling.group(:label_id).order('count_id DESC').limit(5).count(:id).keys[0]).id) %></li>
@@ -99,13 +99,15 @@
           <li><%= link_to Label.find(Labeling.group(:label_id).order('count_id DESC').limit(5).count(:id).keys[4]).name.titleize,label_path(:id =>Label.find(Labeling.group(:label_id).order('count_id DESC').limit(5).count(:id).keys[4]).id) %></li>
         </ul>
         <br/>
+        <%if Question.count >=5 %>
         <h5>Popular Questions</h5>
         <ul class="nav-stacked">
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
+          <% (1..5).each do |i| %>
+            <li><%= link_to truncate(Question.popular(i).title, length: 40), question_path(Question.popular(i)) %></li>
+            <br/>
+          <% end %>
+        <%end%>
+
         </ul>
         <% end %>
       </div> <!-- col-md-2 - Vertical Nav Bar -->

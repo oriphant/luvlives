@@ -22,22 +22,15 @@ class Question < ActiveRecord::Base
   has_many :labelings, as: :labelable
   has_many :labels, through: :labelings
 
-  #before_create :set_defaults # does not allow you to change value in creating.
   default_scope { order('created_at DESC') }
   
   def increment
-  self.views ||= 0
-  self.views += 1
-  self.save
+    self.views ||= 0
+    self.views += 1
+    self.save
   end
   
-  # private
-  # def set_defaults
-    # self.public = true
-    # self.genderlimit = 'none'
-    # self.agelimit = 'none'
-    # self.anonymous = false
-   # self.views = 0
-   # self.shared = 0
-  # end
+  def self.popular(ranking)
+    Question.order("views DESC").limit(5).find(ranking)
+  end  
 end
