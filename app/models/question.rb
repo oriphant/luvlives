@@ -45,7 +45,6 @@ class Question < ActiveRecord::Base
     
     @rankings.each_with_index do |(i, y), x|
       Label.where(id: i).update_all(rank: x, frequency: y)
-      
     end
 
   end
