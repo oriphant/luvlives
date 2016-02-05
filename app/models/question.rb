@@ -33,4 +33,21 @@ class Question < ActiveRecord::Base
   def self.popular(ranking)
     Question.order("views DESC").limit(5).find(ranking)
   end  
+
+  after_save :update_labelrank
+
+  private
+  def update_labelrank    
+    # (0..Label.all.count-1).each do |i|
+    #   Label.where(id: Labeling.group(:label_id).order('count_id DESC').limit(5).count(:id).keys[i]).update_all(rank: i, frequency: Labeling.group(:label_id).order('count_id DESC').count(:id).values[i])
+    # end
+    @rankings = Labeling.group(:label_id).order('count_id DESC').count(:id)
+    
+    @rankings.each_with_index do |(i, y), x|
+      Label.where(id: i).update_all(rank: x, frequency: y)
+      
+    end
+
+  end
+
 end

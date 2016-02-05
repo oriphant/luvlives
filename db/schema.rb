@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20160201070632) do
 
   create_table "labels", force: :cascade do |t|
     t.string   "name"
+    t.integer  "rank"
+    t.integer  "frequency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
