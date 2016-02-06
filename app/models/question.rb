@@ -37,16 +37,13 @@ class Question < ActiveRecord::Base
   after_save :update_labelrank
 
   private
+  # ~~~ Update Label Ranking System After Question Save - Start ~~~
   def update_labelrank    
-    # (0..Label.all.count-1).each do |i|
-    #   Label.where(id: Labeling.group(:label_id).order('count_id DESC').limit(5).count(:id).keys[i]).update_all(rank: i, frequency: Labeling.group(:label_id).order('count_id DESC').count(:id).values[i])
-    # end
-    @rankings = Labeling.group(:label_id).order('count_id DESC').count(:id)
-    
-    @rankings.each_with_index do |(i, y), x|
+    @rankings = Labeling.group(:label_id).order('count_id DESC').count(:id) # Creates an array from labeling with frequency of label_id tags
+    @rankings.each_with_index do |(i, y), x| # i = value i.e. label_id / y = key i.e. frequency / x = index counter
       Label.where(id: i).update_all(rank: x, frequency: y)
     end
-
   end
-
+  # ~~~ Update Label Ranking System After Question Save - End ~~~
+  
 end

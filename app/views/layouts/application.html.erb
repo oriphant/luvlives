@@ -67,6 +67,7 @@
     </div> <!-- container-fluid -->
   </nav>
 <!-- ~~~~ Horizontal Nav Bar - End ~~~~ -->
+
 <!-- Flash Error Message - Start -->
 <% if flash[:notice] %>
   <div class="alert alert-danger">
@@ -85,29 +86,36 @@
   </div>
 <% end %>
 <!-- Flash Error Message - End -->
+
 <!-- ~~~~ Vertical Nav Bar - Start ~~~~ -->
   <div class="container">
     <div class="row">
       <div class="col-md-2 sidebar">
+
+        <!-- ~~~ Top Labels - Start ~~~ -->
         <%if Label.count >=5 %>
-        <h5>Popular Categories</h5>
-        <ul class="nav-stacked">
-          <% (0..4).each do |i| %>
-            <li><%= link_to Label.where(rank: i).take.name.titleize,label_path(:id =>Label.where(rank: i).take.id) %></li>
-          <% end %>
-        </ul>
+          <h5>Popular Categories</h5>
+          <ul class="nav-stacked">
+            <% (0..4).each do |i| %>
+              <li><%= link_to Label.where(rank: i).take.name.titleize,label_path(:id =>Label.where(rank: i).take.id) %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <!-- ~~~ Top Labels - End ~~~ -->
+
+        <!-- ~~~ Most Viewed Questions - Start ~~~ -->
         <br/>
         <%if Question.count >=5 %>
-        <h5>Popular Questions</h5>
-        <ul class="nav-stacked">
-          <% (1..5).each do |i| %>
-            <li><%= link_to truncate(Question.popular(i).title, length: 40), question_path(Question.popular(i)) %></li>
-            <br/>
-          <% end %>
+          <h5>Popular Questions</h5>
+          <ul class="nav-stacked">
+            <% (1..5).each do |i| %>
+              <li><%= link_to truncate(Question.popular(i).title, length: 40), question_path(Question.popular(i)) %></li>
+              <br/>
+            <% end %>
+          </ul>
         <%end%>
+        <!-- ~~~ Most Viewed Questions - End ~~~ -->
 
-        </ul>
-        <% end %>
       </div> <!-- col-md-2 - Vertical Nav Bar -->
   <!-- ~~~~ Vertical Nav Bar - End ~~~~ -->
   	<div class="yieldarea">
