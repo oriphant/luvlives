@@ -14,9 +14,9 @@
 		  		<!-- Answer Loop - Start -->
 
 	        <%= Vote.group(:answer_id).order('answer_id DESC').sum(:value)%>
-	        
+
 	        <%y = question.answers.select(:id).uniq.to_ary%>
-	        
+
 	        <% z = Vote.group(answer_id: question.answers) %>
 	        <br/>
 	        This is z <%= z %>
@@ -24,37 +24,14 @@
 	        This is y <%= y%>
 					<!-- ~~~ -->
 	        <% answer_votes = [] %>
-	        <% question.answers.each do |a| %>
-	        	<% answer_votes << {a.id => Vote.where(answer_id: a.id).sum(:value)} %>
-	        	<br/>
-	        	Answer Number <%= a.id %>
-	        	<br/>
-	        	Answer Votes <%= Vote.where(answer_id: a.id).sum(:value)%>
-	 	 				<br/>
-	        <% end %>
-	        <br/>
-	        Votes array <%= answer_votes %>
-	        <!-- ~~~ -->
-	        <!-- ~~~ -->
-	        <% most_votes = -1 %>
-	        <% most_vote_id = [] %>
+					<% answers = question.answers.sort {|a, b| b.points <=> a.points} %>
 
-	        <% question.answers.each do |a| %>
-	        	<%if Vote.where(answer_id: a.id).sum(:value) > most_votes %>
-	        		<%most_votes=Vote.where(answer_id: a.id).sum(:value)%>
-	        		<%most_vote_id=a.id%>
-	        	<%end%>
-	        <% end %>
-	        <br/>
-	        Most Votes <%= most_votes.class %>
-	        Most Votes ID <%= most_vote_id.class %>
-	        <%=question.answers.first%>
-	        <!-- render 'answers/form', answer: most_vote_id %> -->
+	        <%= render 'answers/form', answer: Answer.find(answers.first) %>
 
 	        <!-- ~~~ -->
 
 	        <!-- Answer Loop - End -->
-	        
+
 		        <div class="container">
 			        <div class="row">
 				        <%= button_to "Answer Question", new_question_answer_path(question.id), method: :get, class: 'btn btn-default btn-xs' %>

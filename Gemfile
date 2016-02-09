@@ -43,6 +43,7 @@ group :development do
   # Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
   gem 'annotate'
+  gem 'faker'
 end
 
 group :production do
@@ -60,5 +61,3 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'puma'
-
-
