@@ -7,6 +7,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :views
       t.boolean :helpful
       t.integer :sharedcount
+      t.integer :rank, default: 0
 
       t.timestamps null: false
     end

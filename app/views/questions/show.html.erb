@@ -16,10 +16,12 @@
 		<% @question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
 			<hr/>
 				<h4><%= a.user.name%></h4>
+        <p><%= a.rank %></p>
+        <p><%= a.created_at.to_formatted_s(:long) %></p>
 			<p>
 			  <%= a.body %>
 			  Answer Views: <%= a.views %>
-			</p> 
+			</p>
 
 			<% if current_user.present? && current_user.id == @answer.user_id%>
 				<%= link_to 'Edit Answer', edit_question_answer_path(answer, :question_id => answer.question_id)%>

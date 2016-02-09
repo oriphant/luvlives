@@ -14,6 +14,7 @@
 #  twitter                :string
 #  linkedin               :string
 #  website                :string
+#  views                  :integer
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
