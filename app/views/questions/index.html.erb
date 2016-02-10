@@ -58,7 +58,7 @@
 	        Most Votes ID <%= most_vote_id %>
 	        <%=question.answers.first%>
 
-	        <%= render 'answers/form', answer: question.answers.find(most_vote_id) %>
+	        <%= render 'answers/form', answer: Answer.find(most_vote_id) %> <!-- If I replace most_vote_id with a number it works -->
 	        
 	        <br/>~~~Attempt 3 - End~~~<br/>
 	        <!-- Attempt 3 - End-->
