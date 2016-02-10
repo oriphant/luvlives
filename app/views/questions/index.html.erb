@@ -11,59 +11,12 @@
 		  			<hr/>
 		  		</h4>
 
-		  		<!-- Answer Loop - Start -->
-		  		<!-- Attempt No 1 - Start -->
-		  		~~~Attempt 1 - Start~~~
-	        <%= Vote.group(:answer_id).order('answer_id DESC').sum(:value)%>
-	        
-	        <%y = question.answers.select(:id).uniq.to_ary%>
-	        
-	        <% z = Vote.group(answer_id: question.answers) %>
-	        <br/>
-	        This is z <%= z %>
-	        <br/>
-	        This is y <%= y%>
-	        <br/>~~~Attempt 1- End~~~<br/>
-					<!-- Attempt No 1 - End -->
+		  		<!-- Answer Sorted with Most Votes - Start -->
 
-					<!-- Attempt No 2 - Start -->
-					~~~Attempt 2 - Start~~~
-	        <% answer_votes = [] %>
-	        <% question.answers.each do |a| %>
-	        	<% answer_votes << {a.id => Vote.where(answer_id: a.id).sum(:value)} %>
-	        	<br/>
-	        	Answer Number <%= a.id %>
-	        	<br/>
-	        	Answer Votes <%= Vote.where(answer_id: a.id).sum(:value)%>
-	 	 				<br/>
-	        <% end %>
-	        <br/>
-	        Votes array <%= answer_votes %>
-	        <br/>~~~Attempt 2 - End~~~ <br/>
-	        <!-- Attempt 2 - End -->
-
-	        <!-- Attempt 3 - Start -->
-	        ~~~Attempt 3 - Start~~~
-	        <% most_votes = -1 %>
-	        <% most_vote_id = [] %>
-
-	        <% question.answers.each do |a| %>
-	        	<%if Vote.where(answer_id: a.id).sum(:value) > most_votes %>
-	        		<%most_votes=Vote.where(answer_id: a.id).sum(:value)%>
-	        		<%most_vote_id=a.id%>
-	        	<%end%>
-	        <% end %>
-	        <br/>
-	        Most Votes <%= most_votes %>
-	        Most Votes ID <%= most_vote_id %>
-	        <%=question.answers.first%>
-
-	        <%= render 'answers/form', answer: question.answers.find(most_vote_id) %>
-	        
-	        <br/>~~~Attempt 3 - End~~~<br/>
-	        <!-- Attempt 3 - End-->
-
-	        <!-- Answer Loop - End -->
+					<% ans = question.answers.sort {|a, b| b.points <=> a.points} %>
+					<%= render 'answers/form', answer: Answer.find(ans.first)%>
+					
+					<!-- Answer Sorted with Most Votes - End -->
 	        
 		        <div class="container">
 			        <div class="row">
