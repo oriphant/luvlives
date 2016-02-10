@@ -12,7 +12,8 @@
 		  		</h4>
 
 		  		<!-- Answer Loop - Start -->
-
+		  		<!-- Attempt No 1 - Start -->
+		  		~~~Attempt 1 - Start~~~
 	        <%= Vote.group(:answer_id).order('answer_id DESC').sum(:value)%>
 	        
 	        <%y = question.answers.select(:id).uniq.to_ary%>
@@ -22,7 +23,11 @@
 	        This is z <%= z %>
 	        <br/>
 	        This is y <%= y%>
-					<!-- ~~~ -->
+	        <br/>~~~Attempt 1- End~~~<br/>
+					<!-- Attempt No 1 - End -->
+
+					<!-- Attempt No 2 - Start -->
+					~~~Attempt 2 - Start~~~
 	        <% answer_votes = [] %>
 	        <% question.answers.each do |a| %>
 	        	<% answer_votes << {a.id => Vote.where(answer_id: a.id).sum(:value)} %>
@@ -34,8 +39,11 @@
 	        <% end %>
 	        <br/>
 	        Votes array <%= answer_votes %>
-	        <!-- ~~~ -->
-	        <!-- ~~~ -->
+	        <br/>~~~Attempt 2 - End~~~ <br/>
+	        <!-- Attempt 2 - End -->
+
+	        <!-- Attempt 3 - Start -->
+	        ~~~Attempt 3 - Start~~~
 	        <% most_votes = -1 %>
 	        <% most_vote_id = [] %>
 
@@ -46,12 +54,14 @@
 	        	<%end%>
 	        <% end %>
 	        <br/>
-	        Most Votes <%= most_votes.class %>
-	        Most Votes ID <%= most_vote_id.class %>
+	        Most Votes <%= most_votes %>
+	        Most Votes ID <%= most_vote_id %>
 	        <%=question.answers.first%>
-	        <!-- render 'answers/form', answer: most_vote_id %> -->
 
-	        <!-- ~~~ -->
+	        <%= render 'answers/form', answer: question.answers.find(most_vote_id) %>
+	        
+	        <br/>~~~Attempt 3 - End~~~<br/>
+	        <!-- Attempt 3 - End-->
 
 	        <!-- Answer Loop - End -->
 	        

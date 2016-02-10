@@ -18,6 +18,8 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   has_many :votes
 
+  default_scope { all.order_by(shared_)}
+
   def up_votes
     votes.where(value: 1).count
   end
