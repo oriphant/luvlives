@@ -14,36 +14,26 @@
 		  		<!-- Answer Loop - Start -->
 		  		<!-- Attempt No 1 - Start -->
 		  		~~~Attempt 1 - Start~~~
-	        <%= Vote.group(:answer_id).order('answer_id DESC').sum(:value)%>
-	        
-	        <%y = question.answers.select(:id).uniq.to_ary%>
-	        
-	        <% z = Vote.group(answer_id: question.answers) %>
+		  		<br/>
+		  		<%= Vote.group(:answer_id).sum(:value)%>
+		  		<br/>
+		  		<%= Vote.group(:answer_id).sum(:value).sort_by{|a,b| b}%>
+		  		<br/>
+		  		<% a=Vote.group(:answer_id).sum(:value).sort_by{|a,b| b}.last[0]%>
+		  		<% if a!=[] %>
+	        <%= render 'answers/form', answer: Answer.find(a) %> 		  			
+		  		<% end %>
 	        <br/>
-	        This is z <%= z %>
-	        <br/>
-	        This is y <%= y%>
+	        <% b= Vote.group(:answer_id).sum(:value).max_by{|k,v| v}[0]%>
+	        <% if b!=[] %>
+	        <%= render 'answers/form', answer: Answer.find(a) %> 		  			
+		  		<% end %>
+	       
 	        <br/>~~~Attempt 1- End~~~<br/>
 					<!-- Attempt No 1 - End -->
 
-					<!-- Attempt No 2 - Start -->
-					~~~Attempt 2 - Start~~~
-	        <% answer_votes = [] %>
-	        <% question.answers.each do |a| %>
-	        	<% answer_votes << {a.id => Vote.where(answer_id: a.id).sum(:value)} %>
-	        	<br/>
-	        	Answer Number <%= a.id %>
-	        	<br/>
-	        	Answer Votes <%= Vote.where(answer_id: a.id).sum(:value)%>
-	 	 				<br/>
-	        <% end %>
-	        <br/>
-	        Votes array <%= answer_votes %>
-	        <br/>~~~Attempt 2 - End~~~ <br/>
-	        <!-- Attempt 2 - End -->
-
-	        <!-- Attempt 3 - Start -->
-	        ~~~Attempt 3 - Start~~~
+	        <!-- Attempt 2 - Start -->  <!-- Not a great way to do this. -->
+	        ~~~Attempt 2 - Start~~~
 	        <% most_votes = -1 %>
 	        <% most_vote_id = [] %>
 
@@ -58,10 +48,12 @@
 	        Most Votes ID <%= most_vote_id %>
 	        <%=question.answers.first%>
 
-	        <%= render 'answers/form', answer: Answer.find(most_vote_id) %> <!-- If I replace most_vote_id with a number it works -->
+	        <%if most_vote_id != [] %>
+	        <%= render 'answers/form', answer: Answer.find(most_vote_id) %> 
+	        <%end%>
 	        
-	        <br/>~~~Attempt 3 - End~~~<br/>
-	        <!-- Attempt 3 - End-->
+	        <br/>~~~Attempt 2 - End~~~<br/>
+	        <!-- Attempt 2 - End-->
 
 	        <!-- Answer Loop - End -->
 	        
