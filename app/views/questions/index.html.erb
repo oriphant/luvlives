@@ -11,14 +11,21 @@
 		  			<hr/>
 		  		</h4>
 
-		  		<!-- Answer Sorted with Most Votes - Start -->
-
+		  		<!-- Answer Sorted with Most Votes - Start - Best Method -->
 					<% ans = question.answers.sort {|a, b| b.points <=> a.points}.first %>
 					<% if ans %>
 						<%= render 'answers/form', answer: ans %>
 					<%end%>
 					<!-- Answer Sorted with Most Votes - End -->
-	        
+
+		  		<!-- Answer Sorted with Most Votes - Start - Redundent to use Answer.find -->
+					<% ans = question.answers.sort {|a, b| b.points <=> a.points}.first %>
+					<% if ans %>
+						 <%= render 'answers/form', answer: Answer.find(ans) %>
+					<%end%>
+					<!-- Answer Sorted with Most Votes - End -->
+
+
 		        <div class="container">
 			        <div class="row">
 				        <%= button_to "Answer Question", new_question_answer_path(question.id), method: :get, class: 'btn btn-default btn-xs' %>
