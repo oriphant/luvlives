@@ -16,15 +16,15 @@ class Vote < ActiveRecord::Base
 
   validates :value, inclusion: { in: [-1, 1], message: "%{value} is not a valid vote." }
 
-  after_save :update_rank
+  after_save :update_vote_count
 
-  def update_rank
+  private
+  def update_vote_count
+	  if value_changed?
+	  	answer.vote_count -= value_was || 0 # If user changeing vote this line accounts for the old value and removes it if it exists or is zero
+	  	answer.vote_count += value # Add the new value to the vote count
+	  	answer.update_attributes(vote_count: answer.vote_count)
+	  end
+	end
 
-    if value_changed?
-      answer.rank -= value_was || 0
-      answer.rank += value
-      answer.update_attributes(rank: answer.rank)
-    end
-
-  end
 end

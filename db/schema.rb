@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160201070632) do
     t.integer  "views"
     t.boolean  "helpful"
     t.integer  "sharedcount"
-    t.integer  "rank",        default: 0
+    t.integer  "vote_count",  default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

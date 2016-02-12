@@ -19,7 +19,7 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   has_many :votes
 
-  default_scope { order(rank: :desc, created_at: :desc)}
+  default_scope { order(vote_count: :desc, created_at: :desc) }
 
   def up_votes
     votes.where(value: 1).count
@@ -39,5 +39,4 @@ class Answer < ActiveRecord::Base
     self.save
   end
 
-  default_scope { order('created_at DESC') }
 end
