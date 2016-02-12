@@ -13,9 +13,10 @@
 
 		  		<!-- Answer Sorted with Most Votes - Start -->
 
-					<% ans = question.answers.sort {|a, b| b.points <=> a.points} %>
-					<%= render 'answers/form', answer: Answer.find(ans.first)%>
-					
+					<% ans = question.answers.sort {|a, b| b.points <=> a.points}.first %>
+					<% if ans %>
+						<%= render 'answers/form', answer: ans %>
+					<%end%>
 					<!-- Answer Sorted with Most Votes - End -->
 	        
 		        <div class="container">
