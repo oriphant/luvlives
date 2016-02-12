@@ -7,7 +7,8 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :views
       t.boolean :helpful
       t.integer :sharedcount
-
+      t.integer :vote_count, default: 0
+      
       t.timestamps null: false
     end
   end
