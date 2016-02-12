@@ -38,7 +38,7 @@
         </form>
         <!-- Search Box - End -->
         <ul class="nav navbar-nav navbar-right">
-          
+
           <li><%= link_to '<i class="fa fa-question-circle"></i> Ask'.html_safe, new_question_path %></li>
           <li><%= link_to '<i class="fa fa-book"></i> Read'.html_safe, questions_path %></li>
           <!-- Navbar Dropdown Menu - Start -->
@@ -70,7 +70,7 @@
 
 <!-- Flash Error Message - Start -->
 <% if flash[:notice] %>
-  <div class="alert alert-danger">
+  <div class="alert alert-success">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <%= flash[:notice] %>
   </div>
@@ -80,7 +80,7 @@
     <%= flash[:error] %>
   </div>
 <% elsif flash[:alert] %>
-  <div class="alert alert-danger">
+  <div class="alert alert-warning">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <%= flash[:alert] %>
   </div>

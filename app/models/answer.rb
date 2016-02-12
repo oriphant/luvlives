@@ -9,6 +9,7 @@
 #  views       :integer
 #  helpful     :boolean
 #  sharedcount :integer
+#  rank        :integer          default(0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -17,6 +18,8 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :question
   has_many :votes
+
+  default_scope { order(rank: :desc, created_at: :desc)}
 
   def up_votes
     votes.where(value: 1).count

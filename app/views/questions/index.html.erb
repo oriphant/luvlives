@@ -11,6 +11,7 @@
 		  			<hr/>
 		  		</h4>
 
+<<<<<<< HEAD
 		  		<!-- Answer Sorted with Most Votes - Start - Best Method -->
 					<% ans = question.answers.sort {|a, b| b.points <=> a.points}.first %>
 					<% if ans %>
@@ -25,6 +26,11 @@
 					<%end%>
 					<!-- Answer Sorted with Most Votes - End -->
 
+=======
+		  		<!-- Answer Loop - Start -->
+ 				  <%= render question.answers.first %>
+	        <!-- Answer Loop - End -->
+>>>>>>> 0136e67c7afd5fe98e1b9defc59b892fb15a2852
 
 		        <div class="container">
 			        <div class="row">
