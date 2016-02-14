@@ -38,12 +38,14 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, 
+         :confirmable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :questions
   has_many :answers
   has_many :posts
   has_many :votes
   mount_uploader :avatar, AvatarUploader
+  
 
   def admin?
     status == 'admin'
@@ -57,6 +59,20 @@ class User < ActiveRecord::Base
     self.views ||= 0
     self.views += 1
     self.save
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    # where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name
+      user.website = auth.info.user_website
+      user.facebook = auth.info.urls
+      # user.gender = auth.info.gender
+      # user.avatar = auth.info.image # assuming the user model has an image
+      user.remote_avatar_url = auth.info.image
+    end
   end
 
 end

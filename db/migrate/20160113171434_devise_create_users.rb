@@ -5,10 +5,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :status, :default => "user"
       t.text :bio
-      t.string :city
-      t.string :state
-      t.string :gender
-      t.integer :age
+      t.string :city, :default => "-"
+      t.string :state, :default => "-"
+      t.string :gender, :default => "-"
+      t.string :age, :default => "-"
       t.string :facebook
       t.string :twitter
       t.string :linkedin

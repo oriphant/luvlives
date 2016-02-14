@@ -20,7 +20,7 @@
 			<div class ="col-md-6">
 				<ul>
 				<span class ="boxtitle">Login</span>
-				<li><%= link_to '<i class="fa fa-facebook-square"></i> Login with Facebook'.html_safe %></li>
+				<li><%= link_to '<i class="fa fa-facebook-square"></i> Login with Facebook'.html_safe, user_omniauth_authorize_path(:facebook) %></li>
 				<li><%= link_to '<i class="fa fa-google"></i> Login with Google'.html_safe %></li>
 				<li><%= link_to '<i class="fa fa-twitter"></i> Login with Twitter'.html_safe %></li>
 				<li><%= link_to '<i class="fa fa-envelope-o"></i> Using Email Address'.html_safe, new_user_registration_path %></li>

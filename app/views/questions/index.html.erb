@@ -12,7 +12,9 @@
 		  		</h4>
 
 		  		<!-- Answer Loop - Start -->
+		  		<% if question.answers.exists? %>
  				  <%= render question.answers.first %>
+ 				  <% end %>
 	        <!-- Answer Loop - End -->
 
 		        <div class="container">

@@ -1,12 +1,12 @@
 require 'faker'
 
-u = User.find_or_initialize_by(
-  name: "Ricky Panzer",
-  email: "richardrpanzer@gmail.com",
-)
-u.password = "testtest"
-u.skip_confirmation!
-u.save!
+# u = User.find_or_initialize_by(
+#   name: "Roberto Lee",
+#   email: "oriphant@gmail.com",
+# )
+# u.password = "testtest"
+# u.skip_confirmation!
+# u.save!
 
 2.times do
   u = User.new(

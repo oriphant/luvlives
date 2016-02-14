@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201070632) do
+ActiveRecord::Schema.define(version: 20160212235804) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(version: 20160201070632) do
     t.string   "name"
     t.string   "status",                 default: "user"
     t.text     "bio"
-    t.string   "city"
-    t.string   "state"
-    t.string   "gender"
-    t.integer  "age"
+    t.string   "city",                   default: "-"
+    t.string   "state",                  default: "-"
+    t.string   "gender",                 default: "-"
+    t.string   "age",                    default: "-"
     t.string   "facebook"
     t.string   "twitter"
     t.string   "linkedin"
@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(version: 20160201070632) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "avatar"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
