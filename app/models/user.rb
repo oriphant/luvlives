@@ -45,7 +45,6 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :votes
   mount_uploader :avatar, AvatarUploader
-  
 
   def admin?
     status == 'admin'
