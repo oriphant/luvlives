@@ -66,10 +66,12 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
-      user.website = auth.info.user_website
-      user.facebook = auth.info.urls
+      # user.website = auth.info.website # Not working
+      # user.bio = auth.info.user_about_me # Not working
+      # user.bio = auth.extra.raw_info.bio # Not working
+      # user.city = auth.info.location #Not working
+      # user.facebook = auth.info.urls #Not working
       # user.gender = auth.info.gender
-      # user.avatar = auth.info.image # assuming the user model has an image
       user.remote_avatar_url = auth.info.image
     end
   end

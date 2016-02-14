@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text :bio
       t.string :city, :default => "-"
       t.string :state, :default => "-"
-      t.string :gender, :default => "-"
+      t.string :gender
       t.string :age, :default => "-"
       t.string :facebook
       t.string :twitter

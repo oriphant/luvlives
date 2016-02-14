@@ -16,7 +16,7 @@
 		<% @question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
 			<hr/>
 				<h4><%= a.user.name%></h4>
-        <p><%= a.rank %></p>
+        <p><%= a.vote_count %></p>
         <p><%= a.created_at.to_formatted_s(:long) %></p>
 			<p>
 			  <%= a.body %>

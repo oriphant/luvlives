@@ -16,7 +16,11 @@ Email Address: <%=current_user.email%>
 Age: <%=current_user.age%>
 
 <br/>
-Gender <%=current_user.gender.titleize%>
+<% if current_user.gender? %>
+	Gender: <%=current_user.gender.titleize%>
+<% else %>
+	Gender: -
+<% end %>
 
 <h5>Your Links</h5>
 

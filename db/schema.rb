@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20160212235804) do
     t.text     "bio"
     t.string   "city",                   default: "-"
     t.string   "state",                  default: "-"
-    t.string   "gender",                 default: "-"
+    t.string   "gender"
     t.string   "age",                    default: "-"
     t.string   "facebook"
     t.string   "twitter"
