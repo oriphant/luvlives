@@ -61,22 +61,6 @@ class User < ActiveRecord::Base
     self.save
   end
 
-  # def self.from_omniauth(auth)
-  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-  #   # where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-  #     user.email = auth.info.email
-  #     user.password = Devise.friendly_token[0,20]
-  #     user.name = auth.info.name
-  #     # user.website = auth.info.website # Not working
-  #     # user.bio = auth.info.user_about_me # Not working
-  #     # user.bio = auth.extra.raw_info.bio # Not working
-  #     # user.city = auth.info.location #Not working
-  #     # user.facebook = auth.info.urls #Not working
-  #     # user.gender = auth.info.gender
-  #     user.remote_avatar_url = auth.info.image
-  #   end
-  # end
-
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     if user
@@ -119,7 +103,31 @@ class User < ActiveRecord::Base
           gender: access_token.extra.raw_info.gender
         )
       end
-   end
+    end
+  end
+
+  def self.find_for_linkedin(auth, signed_in_resource=nil) 
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if user
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      if registered_user 
+        return registered_user 
+      else 
+        user = User.create(
+          name:auth.info.name, 
+          provider:auth.provider, 
+          uid:auth.uid, 
+          email:auth.info.email, 
+          password:Devise.friendly_token[0,20],
+          remote_avatar_url:auth.info.image,
+          bio: auth.info.description,
+          city:auth.info.location,
+          linkedin:auth.info.urls.values[0]
+        )
+      end 
+    end 
   end
 
 end
