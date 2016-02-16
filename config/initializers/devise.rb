@@ -238,7 +238,7 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET'], :secure_image_url => true, :image_size => 'large', scope: 'user_location,user_about_me,user_website' 
   
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? #Need this to avoid error from Google.
-  config.omniauth :google_oauth2, ENV['GOOGLE_ID'], ENV['GOOGLE_SECRET'], { access_type: "offline", approval_prompt: "" }
+  config.omniauth :google_oauth2, ENV['GOOGLE_ID'], ENV['GOOGLE_SECRET'], { access_type: "offline", approval_prompt: "", skip_jwt: true }
   
   config.omniauth :linkedin, ENV['LINKEDIN_ID'], ENV['LINKEDIN_SECRET'], :image_size => 'large'#, fields: 'picture-urls::(original),public-profile-url'
 
