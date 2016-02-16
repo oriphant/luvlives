@@ -15,6 +15,9 @@
 #
 
 class Answer < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   belongs_to :user
   belongs_to :question
   has_many :votes
