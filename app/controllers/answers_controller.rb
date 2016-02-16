@@ -1,12 +1,12 @@
 class AnswersController < ApplicationController
- 	
+
   def new
  		@question = Question.find(params[:question_id])
  		@answers = @question.answers
  		@answer = Answer.new
     authorize @question
   end
-  
+
  	def create
  		@question = Question.find(params[:question_id])
  		@answer = @question.answers.new(answer_params)
@@ -39,9 +39,20 @@ class AnswersController < ApplicationController
   end
 
   def vote
-    Vote.create(voteable: @answer, user_id: current_user, vote: params[:vote])
+
+    @answer = Answer.find(params[:answer_id])
+
+    @vote = @answer.votes.build(user: current_user, vote: params[:vote])
+
+    if @vote.save
       flash[:notice] = "You voted."
-    redirect_to :back
+      redirect_to :back
+    else
+      flash[:notice] = "Something wrong happened."
+      redirect_to :back
+    end
+    # Vote.create(voteable: @answer, user: current_user, vote: params[:vote])
+
   end
 
  	private
