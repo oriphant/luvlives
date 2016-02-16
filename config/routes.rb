@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post '/down-vote' => 'votes#down_vote', as: :down_vote
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations' }
+  devise_for :users, :controllers => { :omniauth_callbacks => 'omniauth_callbacks', registrations: 'registrations' }
 
   resources :users, except:[:edit] do
   	member do
