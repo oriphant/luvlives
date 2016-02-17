@@ -7,7 +7,7 @@
 
 		<h1><%= @question.title %></h1>
 		<p><%= @question.body %></p>
-
+		<% %><!-- @question.increment  -->
 		<% if policy(@question).edit? %>
 			<%= link_to "Edit Question", edit_question_path(@question), class: 'btn btn-default btn-xs' %>
 		<% end %>
@@ -21,6 +21,7 @@
 			<p>
 			  <%= a.body %>
 			  Answer Views: <%= a.views %>
+				<%a.increment%>
 			</p>
 
 			<% if current_user.present? && current_user.id == @answer.user_id%>

@@ -15,8 +15,12 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+require 'elasticsearch/model'
 
 class Question < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   belongs_to :user
   has_many :answers
   has_many :labelings, as: :labelable
@@ -24,15 +28,15 @@ class Question < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
   
+  def self.popular(ranking)
+    Question.order("views DESC").limit(5).find(ranking)
+  end  
+
   def increment
     self.views ||= 0
     self.views += 1
     self.save
   end
-  
-  def self.popular(ranking)
-    Question.order("views DESC").limit(5).find(ranking)
-  end  
 
   after_save :update_labelrank
 
@@ -47,3 +51,5 @@ class Question < ActiveRecord::Base
   # ~~~ Update Label Ranking System After Question Save - End ~~~
   
 end
+
+# Answer.import # Added from Elasticsearch for auto sync model with Elasticsearch
