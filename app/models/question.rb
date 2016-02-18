@@ -17,6 +17,7 @@
 #
 
 class Question < ActiveRecord::Base
+  searchkick callbacks: :async # Need this for searchkick
   belongs_to :user
   has_many :answers
   has_many :labelings, as: :labelable

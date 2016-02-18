@@ -12,7 +12,6 @@
 
 class Label<ActiveRecord::Base 
 	has_many :labelings
-
 	has_many :questions, through: :labelings, source: :labelable, source_type: :Question
 
 	def self.update_labels(label_string)

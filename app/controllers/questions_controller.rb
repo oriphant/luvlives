@@ -2,6 +2,13 @@ class QuestionsController < ApplicationController
   def index
   	@questions = Question.all
     authorize @questions
+  
+    if params[:query].present?
+      @questionsearchs = Question.search(params[:query])
+    else
+      @questionsearchs = Question.all
+    end
+
   end
 
   def show
@@ -44,6 +51,14 @@ class QuestionsController < ApplicationController
     else
      flash[:error] = "There was an error updating your question. Please try again."
      render :edit
+    end
+  end
+
+  def search
+    if params[:search].present?
+      @questions = Question.search(params[:search])
+    else 
+      @questions = Question.all
     end
   end
 

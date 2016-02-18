@@ -1,18 +1,24 @@
 <div class="row">
 	<div class="col-md-8">
-	<h1>Questions Related To <%= @label.name.titleize %></h1>
+	<h1>Questions On - <%= @label.name.titleize %></h1>
 		
 		<% @label.questions.each do |question| %> 
 			<div>				
+				<div class="media">
+	  		<div class="media-body">
+	  		<h4 class="media-heading">
 				<%= link_to question.title, question %>
+				</h4>
 				
 				<!-- Should show answers for each question -->
-					<% question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
-	 	 				  <%= render 'answers/form', answer: a %>
-	        <% end %>
+		  		<% if question.answers.exists? %>
+ 				  <%= render question.answers.first %>
+ 				  <% end %>
 	      <!-- Answers for each question - end -->
 
-			</div>
+				</div> <!-- Media Body -->
+		   	</div> <!-- Media -->
+	   	</div>
 		<% end %>
 
 	</div>
