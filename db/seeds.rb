@@ -17,20 +17,32 @@ require 'faker'
   u.skip_confirmation!
   u.save!
 end
-
 users = User.all
 
-5.times do
-
+10.times do
   Question.create(
     title: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
     user: users.sample
   )
+end
+questions = Question.all
 
+50.times do |n| 
+  Labeling.create(
+    label_id: Faker::Number.between(1, 10),
+    labelable_id: Faker::Number.between(1, 10),
+    labelable_type: "Question"
+  )
 end
 
-questions = Question.all
+10.times do |n| 
+labels = "#{Faker::Lorem.word}#{n}"
+  Label.create(
+    name: labels,
+    rank: Faker::Number.between(1, 10)
+  )
+end
 
 50.times do
   Answer.create(
@@ -40,10 +52,9 @@ questions = Question.all
     created_at: Faker::Time.between(DateTime.now - 365, DateTime.now)
   )
 end
-
 answers = Answer.all
-values = [1, -1]
 
+values = [1, -1]
 500.times do
   Vote.create(
     user: users.sample,
