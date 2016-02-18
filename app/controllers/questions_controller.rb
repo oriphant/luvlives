@@ -57,6 +57,7 @@ class QuestionsController < ApplicationController
   def search
     if params[:search].present?
       @questions = Question.search(params[:search])
+      # @questions = Question.search(params[:search], index_name: [Model1.index.name, Model2.index.name, Model3.index.name])
     else 
       @questions = Question.all
     end
