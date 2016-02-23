@@ -1,29 +1,22 @@
-<div class="row">
-	<div class="col-md-8">
-		
-		<%= render partial: 'votes/voter', locals: { answer: answer} %>
 
-		<small>
-			<% if answer.user.avatar? %>
-				<%= image_tag(answer.user.avatar.profile.url, :class => "circle") %>
-		 		Written <%= time_ago_in_words(answer.created_at) %> ago.
-		 	<% else %>
-		 		<%= image_tag("user-profile-size-pic.png", :class => "circle") %>
-		 		Written <%= time_ago_in_words(answer.created_at) %> ago.
-		 	<% end %>
-		</small>
+<%= render partial: 'votes/voter', locals: { answer: answer} %>
+<small class="pull-left">
+	<% if answer.user.avatar? %>
+		<%= image_tag(answer.user.avatar.profile.url, :class => "circle") %>
+ 		Written <%= time_ago_in_words(answer.created_at) %> ago.
+ 	<% else %>
+ 		<%= image_tag("user-profile-size-pic.png", :class => "circle") %> 		
+ 	<% end %>
+</small>
 
-		<h5><%= answer.user.name %></h5>
-		<%answer.increment%>
-		Views: <%= answer.views%>
-		<p>
-		  <%= answer.body %>
-		</p> 
+<p class="answer-rightbox answer-name"><%= answer.user.name %></p>
+<p class="answer-rightbox italic">Answer Views: <%= answer.views %></p>
+<p class="answer-rightbox italic"><small>Written <%= time_ago_in_words(answer.created_at) %> ago </small></p>
 
-		<% if current_user.present? && current_user.id == answer.user_id%>
-			<%= link_to 'Edit Answer', edit_question_answer_path(answer, :question_id => answer.question_id)%>
-		  <!-- answer is the 'a' that is passed from the each do in the index file.  Could have named answer anything -->
-		<%end%>
-		<hr/>
-	</div> <!-- class="row" -->
-</div> <!-- class="col-md-8" -->
+<p class="answer-body"><%= answer.body %></p>
+
+<% if current_user.present? && current_user.id == answer.user_id%>
+	<%= link_to 'Edit Answer', edit_question_answer_path(answer, :question_id => answer.question_id)%>
+<%end%>
+
+<%answer.increment%> <!-- Views counter -->

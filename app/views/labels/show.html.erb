@@ -1,26 +1,30 @@
-<div class="row">
-	<div class="col-md-8">
-	<h1>Questions On - <%= @label.name.titleize %></h1>
-		
-		<% @label.questions.each do |question| %> 
-			<div>				
-				<div class="media">
-	  		<div class="media-body">
-	  		<h4 class="media-heading">
-				<%= link_to question.title, question %>
-				</h4>
-				
-				<!-- Should show answers for each question -->
+<div class="container">
+		<div class="col-md-8">
+		<h1>Questions On - <%= @label.name.titleize %></h1>
+			
+			<% @label.questions.each do |question| %> 
+				<div class="media line">
+		  		<div class="media-body">
+		  		<h4 class="media-heading">
+					<%= link_to question.title, question %>
+					</h4>
+					
+					<!-- Should show answers for each question -->
 		  		<% if question.answers.exists? %>
- 				  <%= render question.answers.first %>
+ 				  	<%= render question.answers.first %>
  				  <% end %>
-	      <!-- Answers for each question - end -->
+		      <!-- Answers for each question - end -->
 
-				</div> <!-- Media Body -->
-		   	</div> <!-- Media -->
-	   	</div>
-		<% end %>
+		      <div class="container">
+			      <div class="row">
+				      <p class = "table-inline"><%= button_to "Answer Question", new_question_answer_path(question.id), method: :get, class: 'btn btn-default btn-xs' %></p>
+				      <p><small><%= link_to "#{question.answers.count} Answers", question_path(question.id) %></small></p>
+			      </div> <!-- row -->
+	      	</div><!-- containter -->
 
-	</div>
-</div>
-￼
+					</div> <!-- media Body -->
+			  </div> <!-- media line -->
+			<% end %>
+
+		</div> <!-- col-md-8 -->
+￼</div> <!-- container -->

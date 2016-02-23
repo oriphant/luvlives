@@ -1,37 +1,41 @@
-<div class="row">
+<div class="container">
   <div class="col-md-8">
 		<!-- Labels / Categories - Start -->
 		<br/>
 		<%= render partial: "labels/list", locals: { labels: @question.labels } %>
 		<!-- Labels / Categories - End -->
 
+		<!-- Question - Start -->
 		<h1><%= @question.title %></h1>
 		<p><%= @question.body %></p>
 
 		<% if policy(@question).edit? %>
 			<%= link_to "Edit Question", edit_question_path(@question), class: 'btn btn-default btn-xs' %>
 		<% end %>
-		Question Views: <%= @question.views %>
+		<p>Question Views: <%= @question.views %></p>
+	  <div class="container">
+      <div class="row">
+        <p class = "table-inline"><%= button_to "Answer Question", new_question_answer_path(@question.id), method: :get, class: 'btn btn-default btn-xs' %></p>
+        <p><%= "#{@question.answers.count} Answers" %></p>
+    	</div> <!-- row -->
+  	</div><!-- containter -->
+		<!-- Question - End -->
 
-		<% @question.answers.each do |a| %> <!-- Not sure how to render just one answer -->
-			<hr/>
-				<h4><%= a.user.name%></h4>
-        <p><%= a.vote_count %></p>
-        <p><%= a.created_at.to_formatted_s(:long) %></p>
-			<p>
-			  <%= a.body %>
-			  Answer Views: <%= a.views %>
-			</p>
-
+		<!-- Answers - Start -->
+		<% @question.answers.each do |a| %> 
+		<div class="answerline">
+			<div class="answerinside">
+        <% if a %>
+ 				  <%= render a %>
+ 				<% end %>
+				</div>
+			</div>
+				
 			<% if current_user.present? && current_user.id == @answer.user_id%>
-				<%= link_to 'Edit Answer', edit_question_answer_path(answer, :question_id => answer.question_id)%>
-			  <!-- answer is the 'a' that is passed from the each do in the index file.  Could have named answer anything -->
+				<%= link_to 'Edit My Answer', edit_question_answer_path(answer, :question_id => answer.question_id)%>
 			<%end%>
 		<% end %>
+		<!-- Answers - End -->
 
-		<!-- 		<div class="field">
-		    <f.label "Public" %> <br />
-		    < f.check_box :public %> <br />
-				</div> -->
   </div> <!-- col-md-8 -->
-</div> <!-- row -->
+</div> <!-- container -->

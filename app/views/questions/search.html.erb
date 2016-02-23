@@ -1,32 +1,35 @@
 <!-- CODE IS EXACTLY THE SAME AS INDEX JUST TITLE CHANGED TO "SEARCH RESULTS" -->
+<!-- HORIZONTAL LINE AT THE BOTTOM CAUSING ISSUES -->
 
 <div class="container">
 	<div class="col-md-8">
-		<h1>Search Results - <%= @questions.total_count %></h1>
+		<h1>Search Results</h1>
+		<p>Questions Found:  <%= @questions.total_count %></p>
 
 		<% @questions.each do |question| %>
-			<div class="media">
+			<div class="media line">
 	      <div class="media-body">
 	        <h4 class="media-heading">
 		  			<p><%= link_to question.title, question_path(question.id) %></p>
 		  			 <%question.increment%> <!-- View counter -->
-		  			<hr/>
 		  		</h4>
 
 		  		<!-- Answer Loop - Start -->
 		  		<% if question.answers.exists? %>
- 				  <%= render question.answers.first %>
+ 				  	<%= render question.answers.first %>
  				  <% end %>
 	        <!-- Answer Loop - End -->
 
 		        <div class="container">
 			        <div class="row">
-				        <%= button_to "Answer Question", new_question_answer_path(question.id), method: :get, class: 'btn btn-default btn-xs' %>
-				        <small><%= question.answers.count %> Answers</small>
+				        <p class = "table-inline"><%= button_to "Answer Question", new_question_answer_path(question.id), method: :get, class: 'btn btn-default btn-xs' %></p>
+				        <p><small><%= link_to "#{question.answers.count} Answers", question_path(question.id) %></small></p>
 			      	</div> <!-- row -->
 	      	</div><!-- containter -->
+	  
 	      </div> <!-- Media Body -->
 	   	</div> <!-- Media -->
+	   	 <!-- Skips line at the bottom if last item.  Try find way to put into end tag below -->
 		<% end %> <!-- Question Loop -->
 	</div> <!-- col-md-8 -->
 </div> <!-- containter -->
