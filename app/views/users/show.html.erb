@@ -1,41 +1,58 @@
+<div class="container">
+  <div class="col-md-8">
+  	<h1> Profile </h1>
+  	<!-- ~~~ Profile Picture - Start ~~~ -->
+		<div class="pull-left">
+			<% if current_user.avatar? %>
+				<%= image_tag(current_user.avatar.profile.url) %>
+			<% else %>
+				<%= image_tag("user-profile-size-pic.png") %>
+			<% end %>
+		</div>
+		<!-- ~~~ Profile Picture - End ~~~ -->
 
-<% if current_user.avatar? %>
-<%= image_tag(current_user.avatar.profile.url) %>
-<% else %>
-	<%= image_tag("user-profile-size-pic.png") %>
-<% end %>
+		<p class="answer-rightbox answer-name"><%=current_user.name%></p>
+		<p class="answer-rightbox italic">Email Address: <%=current_user.email%></p>
+		<p class="answer-rightbox italic">Profile views: <%= current_user.views%></p>
+		</br>
+		<h4>Background</h4>
+		<% if current_user.bio? %>
+			<%=current_user.bio%>
+		<%else%>
+			<p class="italic">Enter your background</p>
+		<%end%>
 
-<%=current_user.name%>
-<%=current_user.city%> <%=current_user.state%>
-</br>
+		<h4>Location</h4>
+		City: <%=current_user.city%> State: <%=current_user.state%>
+		
+		<h4>Demographic</h4>
+		Age: <%=current_user.age%>
 
-Email Address: <%=current_user.email%>
-</br>
-<%=current_user.bio%>
-<br/>
-Age: <%=current_user.age%>
+		<% if current_user.gender? %>
+			Gender: <%=current_user.gender.titleize%>
+		<% else %>
+			Gender: -
+		<% end %>
 
-<br/>
-<% if current_user.gender? %>
-	Gender: <%=current_user.gender.titleize%>
-<% else %>
-	Gender: -
-<% end %>
+		<h4>Social Media Links</h4>
 
-<h5>Your Links</h5>
+		<% if current_user.website? || current_user.facebook? || current_user.twitter? || current_user.linkedin? %>
+			<%= current_user.website%>
+			<%= current_user.facebook%>
+			<%= current_user.twitter%>
+			<%= current_user.linkedin%>
+		<%else%>
+			<p class="italic"> Enter your links.</p>
+		<%end%>
 
-<% if current_user.website? || current_user.facebook? || current_user.twitter? || current_user.linkedin? %>
-	<%= current_user.website%>
-	<%= current_user.facebook%>
-	<%= current_user.twitter%>
-	<%= current_user.linkedin%>
-<%else%>
-	Add a some of your personal links to your profile now.
-	<%= link_to "Update Profile", edit_user_registration_path %>
-<%end%>
-
-<% current_user.increment %>
-Profile views: <%= current_user.views%>
-
-
-
+		<p class = "table-inline"><%= button_to "Edit Profile", edit_user_registration_path, method: :get, class: 'btn btn-default' %></p>
+		<hr/>
+		<h1>Your Activity</h1>
+		<h4>Questions</h4>		
+		Questions Asked: <%=@user.questions.count%>
+		<h4>Answers</h4>
+		Questions Answered: <%=@user.answers.count%>
+		
+		<% current_user.increment %>
+	</div> <!-- col-md-8 -->
+</div> <!-- container -->
