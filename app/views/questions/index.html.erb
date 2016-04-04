@@ -12,7 +12,7 @@
 
 		  		<!-- Answer Loop - Start -->
 		  		<% if question.answers.exists? %>
- 				  	<%= render question.answers.first %>
+ 				  	<div class="answerwidth"><%= render question.answers.first %></div>
  				  <% end %>
 	        <!-- Answer Loop - End -->
 
